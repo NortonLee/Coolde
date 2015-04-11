@@ -1,0 +1,58 @@
+doctype 
+html
+  head
+    - if (typeof(title) == 'undefined')
+        title Express Starter Template
+    - else 
+        title= title + " - Coode ©Norton Li"
+    
+    link(rel='stylesheet',href='/blogcss/screen.css')
+    link(rel='code',href='/blogcss/code.css')
+    // include default stylesheets and any view stylesheets
+    //link(rel='stylesheet', href='/stylesheets/style.css')
+    
+    // include default scripts and any view scripts
+    script(src='/javascripts/jquery-1.8.3.min.js')
+    script(src='/javascripts/modernizr.js')
+    script(src='/javascripts/slash.js')
+    
+    block head
+    
+  body
+      div(class='container')
+        div(class="left-col")
+            div(class='intrude-less')
+                header(id='header',class='inner')
+                    div(class='profilepic')
+                        img(src='images/profile.jpg',alt='Profile Picture',style='width:160px;')
+                    hgroup
+                        h1
+                            <a href='/'>Coolde</a>
+                        <h2>酷的</h2>
+                    nav(id='main-nav')
+                        ul(class='main-navigation')
+                            li
+                                <a href='blog'>博文</a>
+                            li
+                                <a href='life'>杂感</a>
+                            li
+                                <a href='music'>音乐</a>
+                            li
+                                <a href='movie'>电影</a>
+                            li
+                                <a href='about'>关于</a>
+                          
+                          section(class='aboutme')
+                            <p>Norton Li</p>
+                        nav(id='sub-nav')
+                            div(class='social')
+                                <a class='sina' target='blank' href='http://weibo.com/345957657/' title='新浪微博'>新浪微博</a>
+                                <a class='qzone' target='blank' href='http://connect.qq.com/widget/shareqq/index.html' title='QQ空间'>QQ空间</a>
+                                <a class='wchat' target='blank' href='https://github.com/haacked' title='微信'>微信</a>
+                        section(class='copyright')
+                            p &copy; !{(new Date()).getFullYear()} by Norton Li
+        div(class="mid-col")
+            div(class="mid-col-container")
+                div#content.inner
+                    article.page
+                        block content
