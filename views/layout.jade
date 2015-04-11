@@ -4,15 +4,12 @@ html
     - if (typeof(title) == 'undefined')
         title Express Starter Template
     - else 
-        title= title + " - Coode ©Norton Li"
+        title= title + " - Coolde ©Norton Li"
     
     link(rel='stylesheet',href='/blogcss/screen.css')
-    link(rel='code',href='/blogcss/code.css')
-    // include default stylesheets and any view stylesheets
-    //link(rel='stylesheet', href='/stylesheets/style.css')
-    
+
     // include default scripts and any view scripts
-    script(src='/javascripts/jquery-1.8.3.min.js')
+    script(src='/javascripts/jquery-1.11.2.min.js')
     script(src='/javascripts/modernizr.js')
     script(src='/javascripts/slash.js')
     
@@ -56,3 +53,5 @@ html
                 div#content.inner
                     article.page
                         block content
+        footer
+            p ©Norton Li 2015

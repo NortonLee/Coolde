@@ -1,0 +1,32 @@
+doctype 
+html
+  head
+    - if (typeof(title) == 'undefined')
+        title Express Starter Template
+    - else 
+        title= title + " - Coolde后台管理"
+        
+    link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+    link(rel='stylesheet', href='/stylesheets/site.css')
+    
+    // include default scripts and any view scripts
+    script(src='/javascripts/jquery-1.11.2.min.js')
+    script(src='/javascripts/modernizr.js')
+    script(src='/javascripts/slash.js')
+    script(src='/javascripts/bootstrap.min.js')
+    
+    block head
+    
+  body
+    div.navbar.navbar-inverse.navbar-fixed-top
+        div.container
+            div.navbar-header
+                button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-collapse")
+                    span.icon-bar
+                    span.icon-bar
+                    span.icon-bar
+                a.navbar-brand(href="/") Coolde
+    div.container.body-content  
+        block content
+    div.footer
+        p.text-muted &copy;2015 - Norton Li

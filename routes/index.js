@@ -6,24 +6,28 @@ router.get('/', function(req, res) {
   res.render('index', { title: '首页' });
 });
 
-router.get('/blog',function(req,res){
+router.get('/blog', function(req,res){
     res.render('blog',{ title: '博文' });
 });
 
-router.get('/lift',function(req,res){
+router.get('/lift', function(req,res){
     res.render('lift',{ title: '杂感' });
 });
 
-router.get('/musicmusic',function(req,res){
+router.get('/musicmusic', function(req,res){
     res.render('music',{ title: '音乐' });
 });
 
-router.get('/movie',function(req,res){
+router.get('/movie', function(req,res){
     res.render('movie',{ title: '电影' });
 });
 
-router.get('/about',function(req,res){
+router.get('/about', function(req,res){
     res.render('about',{ title: '关于酷的' });
+});
+
+router.get('/admin', function(req,res){
+    res.render('./admin/login', {title: 'Coolde 后台管理' });
 });
 
 module.exports = router;
