@@ -3,23 +3,23 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: '首页' });
+  res.render('index', { title: 'Coolde, 酷的' });
 });
 
 router.get('/blog', function(req,res){
-    res.render('blog',{ title: '博文' });
+    res.render('index',{ title: '博文' });
 });
 
-router.get('/lift', function(req,res){
-    res.render('lift',{ title: '杂感' });
+router.get('/life', function(req,res){
+    res.render('index',{ title: '杂感' });
 });
 
-router.get('/musicmusic', function(req,res){
-    res.render('music',{ title: '音乐' });
+router.get('/music', function(req,res){
+    res.render('index',{ title: '音乐' });
 });
 
 router.get('/movie', function(req,res){
-    res.render('movie',{ title: '电影' });
+    res.render('index',{ title: '电影' });
 });
 
 router.get('/about', function(req,res){

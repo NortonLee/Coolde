@@ -30,7 +30,7 @@ app.use(session({
     })
 }));
 
-app.use(express.router(routes));
+app.use('/', routes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
