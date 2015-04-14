@@ -1,5 +1,8 @@
 module.exports = {
     cookieSecret: 'cooldeNorton',
-    db: 'coolde',
-    host: 'localhost'
+    db: 'tHKwaRJSTYLOKHPubAnz',
+    host: 'mongo.duapp.com',
+    db_port: '8908',
+    username: '',
+    password: ''
 };
