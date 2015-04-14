@@ -17,6 +17,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
+//app.use(flash());
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -30,7 +31,7 @@ app.use(session({
     })
 }));
 
-/*app.use(function(req, res, next){
+app.use(function(req, res, next){
     res.locals.user = req.session.user;
     s
     var err = req.flash('error');
@@ -38,10 +39,9 @@ app.use(session({
     
     res.locals.error = err.length? err: null;
     res.locals.success = success.length? success: null;
-});*/
+});
 
 app.use('/', routes);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
