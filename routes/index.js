@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var crypto = require('crypto');
+var User = require("../models/user");
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -28,6 +30,26 @@ router.get('/about', function(req,res){
 
 router.get('/admin', function(req,res){
     res.render('./admin/login', {title: 'Coolde 后台管理' });
+});
+
+router.post('/admin', function(req,res){
+    var md5 = crypto.createHash('md5');
+    var password = md5.update(req.body.inputPassword).digest('base64');
+    
+    var user = new User({
+        name: req.body.inputUserName,
+        password: password
+    });
+    
+    user.save(function(err){
+        if(err){
+            req.flash('error', err);
+            return res.redirect('/admin/login');
+        }
+        
+        req.session.user = user;
+        req.redirect('/');
+    });
 });
 
 module.exports = router;

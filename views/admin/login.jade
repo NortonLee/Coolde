@@ -1,10 +1,11 @@
 extends layout.admin
 
 block content
-    form.form-signin
+    form.form-signin(method="post")
         h2.form-signin-heading Login
         label.sr-only(for="inputUserName")
         input#inputUserName.form-control(type="text" placeholder="User Name" required="" autofocus="")
         label.sr-only(for="inputPassword")
         input#inputPassword.form-control(type="password" placeholder="Password" required="")
-        button.btn.btn-lg.btn-primary.btn-block(type="submit") Sign in
+        div.form
+            button.btn.btn-lg.btn-primary.btn-block(type="submit") Sign in
