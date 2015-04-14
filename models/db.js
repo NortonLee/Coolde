@@ -3,6 +3,6 @@ var Db = require('mongodb').Db;
 var Connection = require('mongodb').Connection;
 var Server = require('mongodb').Server;
 
-module.exports = new Db(settings.db, new Server(settings.host, Connection.DEFAULT_PORT,{}), {w:1});
+module.exports = new Db(settings.db, new Server(settings.host,"55555", { auto_reconnect: true }));
 
-/*module.exports = new Db(settings.db, new Server(settings.host, se*/ttings.db_port,{}), {w:1});
+/*module.exports = new Db(settings.db, new Server(settings.host, settings.db_port,{}), {w:1});*/

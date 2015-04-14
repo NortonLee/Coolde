@@ -12,7 +12,6 @@ User.prototype.save = function save(callback){
         name: this.name,
         password:this.password
     };
-    
     mongodb.open(function(err, db){
         if(err){
             return callback(err);
