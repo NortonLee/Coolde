@@ -33,6 +33,10 @@ router.get('/admin', function(req,res){
     res.render('./admin/login', {title: 'Coolde 后台管理' });
 });
 
+router.get('/manager', function(req, res){
+    res.render('./admin/manager', {title: 'Coolde 后台管理'});
+});
+
 router.post('/admin', function(req,res){
     var md5 = crypto.createHash('md5');
     var password = md5.update(req.body.password).digest('base64');
@@ -41,16 +45,17 @@ router.post('/admin', function(req,res){
         name: req.body.username,
         password: password
     });
-    
-    user.save(function(err){
+    res.redirect('/manager');
+    /*user.save(function(err){
         if(err){
             req.flash('error', err);
             return res.redirect('/admin/login');
         }
         
-        req.session.user = user;
-        req.redirect('/');
-    });
+        //req.session.user = user;
+        //req.redirect('/manager');
+        console.log('true');
+    });*/
 });
 
 

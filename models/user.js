@@ -12,8 +12,14 @@ User.prototype.save = function save(callback){
         name: this.name,
         password:this.password
     };
+    
+    callback(err,user);
+    /*console.log(mongodb);
+    
     mongodb.open(function(err, db){
+        console.log(db);
         if(err){
+            console.log(err);
             return callback(err);
         }
         db.collection('users', function(err, collection){
@@ -28,8 +34,8 @@ User.prototype.save = function save(callback){
                 callback(err,user);
             });
         });
-    });   
-}
+    });*/   
+};
 
 User.get = function get(username, callback){
     mongodb.open(function(err, db){

@@ -31,15 +31,14 @@ app.use(session({
     })
 }));
 
-app.use(function(req, res, next){
+/*app.use(function(req, res, next){
     res.locals.user = req.session.user;
-    s
     var err = req.flash('error');
     var success = req.flash('success');
     
     res.locals.error = err.length? err: null;
     res.locals.success = success.length? success: null;
-});
+});*/
 
 app.use('/', routes);
 
