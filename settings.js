@@ -1,7 +1,8 @@
 module.exports = {
     cookieSecret: 'cooldeNorton',
     db: 'coolde',
-    host: 'local'
+    host: 'local',
+    url: 'mongodb://127.0.0.1:27017/coolde'
 };
 
 /*module.exports = {

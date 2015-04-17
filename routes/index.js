@@ -30,28 +30,51 @@ router.get('/about', function(req,res){
 });
 
 router.get('/admin', function(req,res){
-    res.render('./admin/login', {title: 'Coolde 后台管理' });
+    if(req.session.user == null){
+        res.render('./admin/login', {title: '登录' });
+    }else{
+        res.render('./admin/manager', {title: '文章发布'});
+    }
+});
+
+router.get('/login', function(req,res){
+    res.render('./admin/login', {title: '登录'});
+});
+
+router.get('/manager', function(req,res){
+    res.render('./admin/manager', {title: '文章发布'});
 });
 
 router.post('/admin', function(req,res){
     var md5 = crypto.createHash('md5');
     var password = md5.update(req.body.password).digest('base64');
     
-    var user = new User({
-        name: req.body.username,
-        password: password
-    });
-    
-    user.save(function(err){
-        if(err){
-            req.flash('error', err);
-            return res.redirect('/admin/login');
+    User.get(req.body.username, function(err, user){
+        if(!user){
+            req.flash('error', '用户不存在！');
+            return res.redirect('/login');
+        }
+        if(user.password != password){
+            req.flash('error', '用户密码错误！');
+            return res.redirect('/login');
         }
         
         req.session.user = user;
-        req.redirect('/');
+        res.redirect('/manager');
     });
 });
 
 
 module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+
