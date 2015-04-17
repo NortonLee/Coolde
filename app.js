@@ -33,7 +33,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 /*app.use(function(req, res, next){
     res.locals.user = req.session.user;
-    s
     var err = req.flash('error');
     var success = req.flash('success');
     

@@ -45,10 +45,15 @@ router.get('/manager', function(req,res){
     res.render('./admin/manager', {title: '文章发布'});
 });
 
+router.get('/manager', function(req, res){
+    res.render('./admin/manager', {title: 'Coolde 后台管理'});
+});
+
 router.post('/admin', function(req,res){
     var md5 = crypto.createHash('md5');
     var password = md5.update(req.body.password).digest('base64');
     
+<<<<<<< HEAD
     User.get(req.body.username, function(err, user){
         if(!user){
             req.flash('error', '用户不存在！');
@@ -62,6 +67,23 @@ router.post('/admin', function(req,res){
         req.session.user = user;
         res.redirect('/manager');
     });
+=======
+    var user = new User({
+        name: req.body.username,
+        password: password
+    });
+    res.redirect('/manager');
+    /*user.save(function(err){
+        if(err){
+            req.flash('error', err);
+            return res.redirect('/admin/login');
+        }
+        
+        //req.session.user = user;
+        //req.redirect('/manager');
+        console.log('true');
+    });*/
+>>>>>>> 29ba7ee32a819814fefbb3b4cdd4c85babb570aa
 });
 
 
