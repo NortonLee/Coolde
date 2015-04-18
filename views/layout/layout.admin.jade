@@ -26,7 +26,12 @@ html
                     span.icon-bar
                     span.icon-bar
                 a.navbar-brand(href="/") Coolde
+            - if(user)
+                div.navbar-collapse.collapse
+                    ul.nav.navbar-nav.navbar-right
+                        li
+                            <a href='/logout'>退出</a>
     div.container.body-content  
         block content
     div.footer
-        p.text-muted &copy;2015 - Norton Li
+        p.text-muted Copyright &copy;2015 - Norton Li

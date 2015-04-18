@@ -1,11 +1,15 @@
-extends layout.admin
+extends ../layout/layout.admin
 
 block content
     form.form-signin(method="post")
         h2.form-signin-heading Login
+        - if(typeof(error) !== 'undefined' && error)
+        div.validation-summary-errors
+           p #{error}
         label.sr-only(for="inputUserName")
         input#username.form-control(type="text" name="username" placeholder="User Name" required="" autofocus="")
         label.sr-only(for="inputPassword")
         input#password.form-control(type="password" name="password" placeholder="Password" required="")
         div.form
             button.btn.btn-lg.btn-primary.btn-block(type="submit") Sign in
+        

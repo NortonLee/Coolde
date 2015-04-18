@@ -7,8 +7,9 @@ var bodyParser = require('body-parser');
 var settings = require('./settings');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
+var flash = require('connect-flash');
 
-var routes = require('./routes/index');
+var routes = require('./router');
 
 var app = express();
 
@@ -17,28 +18,30 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
-//app.use(flash());
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(flash());
 app.use(express.static(path.join(__dirname, 'public')));
-/*app.use(session({
+app.use(session({
     secret: settings.cookieSecret,
     store: new MongoStore({
         db: settings.db
     })
-}));*/
+}));
 
-/*app.use(function(req, res, next){
-    res.locals.user = req.session.user;
-    var err = req.flash('error');
-    var success = req.flash('success');
-    
-    res.locals.error = err.length? err: null;
-    res.locals.success = success.length? success: null;
-});*/
+app.use(function(req, res, next){
+  res.locals.user = req.session.user;
+  res.locals.post = req.session.post;
+  var error = req.flash('error');
+  res.locals.error = error.length ? error : null;
+ 
+  var success = req.flash('success');
+  res.locals.success = success.length ? success : null;
+  next();
+});
 
 app.use('/', routes);
 
