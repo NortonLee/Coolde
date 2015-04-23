@@ -19,7 +19,7 @@ User.get = function get(username, callback){
         {  
             db.collection('users', function(err, collection){
                 if(err){
-                    mongodb.close();
+                    db.close();
                     return callback(err);
                 }
 
