@@ -9,6 +9,12 @@ module.exports = {
 
 /*module.exports = {
     cookieSecret: 'cooldeNorton',
+    db: 'coolde',
+    url: 'mongodb://[admin:6z3gcU2p6-Bw@]127.3.105.2:27017/coolde'
+};*/
+
+/*module.exports = {
+    cookieSecret: 'cooldeNorton',
     db: 'tHKwaRJSTYLOKHPubAnz',
     host: 'mongo.duapp.com',
     db_port: '8908',

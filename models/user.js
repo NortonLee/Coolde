@@ -1,11 +1,15 @@
-var settings = require('../settings');
-var MongoClient = require('mongodb').MongoClient;
+var mongoose = require('mongoose');
 
-function User(user){
-    this.name = user.name;
-    this.password = user.password;
+var userSchema = new mongoose.Schema({
+    userName: {type: String},
+    password: {type: String}
+});
+
+userSchema.statics.findByName = function(userName, callback) {
+    return this.findOne({userName: userName}, callback);
 }
 
+<<<<<<< HEAD
 module.exports = User;
 
 User.get = function get(username, callback){
@@ -36,6 +40,9 @@ User.get = function get(username, callback){
         }
     });
 };
+=======
+mongoose.model('User', userSchema);
+>>>>>>> origin/master
 
 
 
