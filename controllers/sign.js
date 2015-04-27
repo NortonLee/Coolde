@@ -9,8 +9,8 @@ exports.showLogin = function(req, res){
 exports.login = function(req, res){
     var md5 = crypto.createHash('md5');
     var password = md5.update(req.body.password).digest('base64');
-    
-    User.findOne(req.body.username,function(err, user){
+
+    User.findOne({userName: req.body.username}, function(err, user){
         if(err){
             console.log(err);
         }

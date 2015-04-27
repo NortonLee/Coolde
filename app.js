@@ -6,7 +6,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var settings = require('./settings');
 var session = require('express-session');
-var MongoStore = require('connect-mongo')(session);
 var flash = require('connect-flash');
 
 var routes = require('./router');
@@ -26,10 +25,7 @@ app.use(cookieParser());
 app.use(flash());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
-    secret: settings.cookieSecret,
-    store: new MongoStore({
-        db: settings.db
-    })
+    secret: settings.cookieSecret
 }));
 
 app.use(function(req, res, next){
