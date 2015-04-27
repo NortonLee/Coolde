@@ -23,9 +23,6 @@ html,body {
 
 input,
 select { max-width: 280px; }
-textarea {
-    max-width: 560px;
-}
 input[type="file"] {
     max-width: 560px;
 }

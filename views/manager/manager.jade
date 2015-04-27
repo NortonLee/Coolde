@@ -1,4 +1,28 @@
 extends ../layout/layout.admin
-
+    
 block content
-    h1 #{user.userName} Login Success!
+    div.panel
+        div.header
+            发布文章
+        div.inner.post
+            form#create_topic_form(method="post" action="create")
+                fieldset
+                    span.tab-selector 文章分类：
+                    select#tab-value(name="tab")
+                        option(value="")请选择
+                        - tabs.forEach(function(item){
+                        option(value="#{item[0]}") #{item[1]}
+                        - })
+                        
+                    textarea#title(name="title" rows=1 placeholder="请输入标题" autofocus="")
+                    div.markdown_editor.in_editor
+                        div.markdown_in_editor
+                            textarea.editor(name="t_content" rows=20)
+                            div.editor_buttons
+                                button.btn.btn-primary 提交
+
+    script(type='text/javascript').
+        (function(){
+            var editor = new Editor();
+            editor.render($('.editor')[0]);
+        })();

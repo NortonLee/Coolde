@@ -8,13 +8,22 @@ html
         
     link(rel='stylesheet', href='/stylesheets/bootstrap.css')
     link(rel='stylesheet', href='/stylesheets/site.css')
+    link(rel='stylesheet', href='/stylesheets/editor.css')
+    link(rel='stylesheet', href='/stylesheets/manager.css')
+    link(rel='stylesheet', href='/libs/webuploader/webuploader.css')
+    link(rel='stylesheet', href='/libs/code-prettify/prettify.css')
+    link(rel='stylesheet', href='/libs/font-awesome/css/font-awesome.css')
+    
+    script(src='/libs/editor/editor.js')
+    script(src='/libs/webuploader/webuploader.withoutimage.js')
+    script(src='/libs/editor/ext.js')
+    script(src='/libs/markdownit.js')
     
     // include default scripts and any view scripts
     script(src='/javascripts/jquery-1.11.2.min.js')
     script(src='/javascripts/modernizr.js')
     script(src='/javascripts/slash.js')
     script(src='/javascripts/bootstrap.min.js')
-    
     block head
     
   body
