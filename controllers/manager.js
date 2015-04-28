@@ -1,11 +1,39 @@
 var config = require('../config');
+var tools = require('../common/tools');
+var models = require('../models');
+var Topic = models.Topic;
+var EventProxy = require('eventproxy');
 
-exports.showManager = function(req, res){
+exports.showManager = function(req, res, next){
     /*if(req.session.user === null || req.session.user === undefined){
         res.redirect('/login');
     }*/
-    res.render('manager/manager', {
-        title: '文章发布',
-        tabs: config.tabs
+    
+    /*res.render('manager/manager', {
+        title: '首页',
+    });*/
+    var page = Number(req.query.page) || 1;
+    var limit = config.list_topic_count;
+    
+    var opt = {skip: (page - 1) * limit, limit: limit, sort: '-create_at'};
+    var query = {'deleted': false};
+    
+    Topic.find(query, function (err, docs) {
+        if (err) {
+          return callback(err);
+        }
+        if (docs.length === 0) {
+          return callback(null, []);
+        }
+
+        Topic.count(query, function(error,count){
+            var pages = Math.ceil(count / limit);
+            return res.render('manager/manager', {
+                title: "首页",
+                topics: docs,
+                current_page: page,
+                pages: pages
+            });
+        });
     });
 };

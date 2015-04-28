@@ -13,6 +13,11 @@ html
     script(src='/javascripts/modernizr.js')
     script(src='/javascripts/slash.js')
     
+    script(src='/libs/editor/editor.js')
+    script(src='/libs/webuploader/webuploader.withoutimage.js')
+    script(src='/libs/editor/ext.js')
+    script(src='/libs/markdownit.js')
+    
     block head
     
   body
@@ -21,7 +26,7 @@ html
             div(class='intrude-less')
                 header(id='header',class='inner')
                     div(class='profilepic')
-                        img(src='images/profile.jpg',alt='Profile Picture',style='width:160px;')
+                        img(src='/images/profile.jpg',alt='Profile Picture',style='width:160px;')
                     hgroup
                         h1
                             <a href='/'>Coolde</a>
@@ -29,15 +34,15 @@ html
                     nav(id='main-nav')
                         ul(class='main-navigation')
                             li
-                                <a href='blog'>博文</a>
+                                <a href='/blog'>博文</a>
                             li
-                                <a href='life'>杂感</a>
+                                <a href='/life'>杂感</a>
                             li
-                                <a href='music'>音乐</a>
+                                <a href='/music'>音乐</a>
                             li
-                                <a href='movie'>电影</a>
+                                <a href='/movie'>电影</a>
                             li
-                                <a href='about'>关于</a>
+                                <a href='/about'>关于</a>
                           
                           section(class='aboutme')
                             <p>Norton Li</p>

@@ -2,6 +2,7 @@ var express = require('express');
 
 var sign = require('./controllers/sign');
 var manager = require('./controllers/manager');
+var topic = require('./controllers/topic');
 
 var router = express.Router();
 
@@ -44,7 +45,12 @@ router.post('/login', sign.login);
 router.get('/logout', sign.logout);
 
 //manager
-router.get('/manager',manager.showManager);
+router.get('/manager', manager.showManager);
+
+//topic
+router.get('/topic/create', topic.show);
+router.post('/topic/create', topic.create);
+router.get('/topic/:tid', topic.index);  
 
 
 module.exports = router;

@@ -26,4 +26,7 @@ db.on('open',function(error){
 
 // models
 require('./user');
+require('./topic');
+
 exports.User = mongoose.model('User');
+exports.Topic = mongoose.model('Topic');
