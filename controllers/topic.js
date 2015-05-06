@@ -4,7 +4,7 @@ var validator = require('validator');
 var config = require('../config');
 var tools = require('../common/tools');
 
-exports.create = function(req, res, nex){
+exports.create = function(req, res, next){
     if(req.session.user === null || req.session.user === undefined){
         res.redirect('/login');
     }
@@ -40,7 +40,7 @@ exports.create = function(req, res, nex){
           tabs: config.tabs,
           tab: tab
         });
-    };
+    }
 
     var topic = new Topic();
     topic.title = title;
@@ -95,6 +95,79 @@ exports.index = function (req, res, next) {
             topic: topic
         });
         
+    });
+};
+
+exports.topic_list = function(req, res ,next){
+    var title;
+    var type;
+    var page = Number(req.params.page) || 1;
+    switch(req.url){
+        case "/":
+        case "/all/" + page:
+            title = "Coolde, 酷的";
+            type = "all";
+            break;
+        case "/blog":
+        case "/blog/" + page:
+            title = "博文";
+            type = "blog";
+            break;
+        case "/life":
+        case "/life/" + page:
+            title = "杂感";
+            type = "life";
+            break;
+        case "/music":
+        case "/music/" + page:
+            title = "音乐";
+            type = "music";
+            break;
+        case "/movie":
+        case "/movie/" + page:
+            title = "电影";
+            type = "movie";
+            break;
+    }
+    console.log(type);
+    var limit = config.web_list_topic_cout;
+    
+    var opt = {skip: (page - 1) * limit, limit: limit, sort: '-create_at'};
+    var query;
+    if(type == "all"){
+        query = {'deleted': false};
+    }else{
+        query = {
+            'deleted': false,
+            'type': type    
+        };
+    }
+    
+    console.log(query);
+    
+    Topic.find(query,'',opt, function (err, docs) {
+        if (err) {
+          return next(err);
+        }
+        if (docs.length === 0) {
+          return next(null, []);
+        }
+        
+        docs.forEach(function(topic){
+            topic.friendly_create_at = tools.formatDate(topic.create_at);
+            topic.brief_content = topic.content.substr(0,200);
+        });
+
+        Topic.count(query, function(error,count){
+            var pages = Math.ceil(count / limit);
+            return res.render('index', {
+                title: title,
+                topics: docs,
+                current_page: page,
+                pages: pages,
+                type: type,
+            });
+        });
     });
 };
                                      

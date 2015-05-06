@@ -7,25 +7,16 @@ var topic = require('./controllers/topic');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res) {
-  res.render('index', { title: 'Coolde, 酷的' });
-});
-
-router.get('/blog', function(req,res){
-    res.render('index',{ title: '博文' });
-});
-
-router.get('/life', function(req,res){
-    res.render('index',{ title: '杂感' });
-});
-
-router.get('/music', function(req,res){
-    res.render('index',{ title: '音乐' });
-});
-
-router.get('/movie', function(req,res){
-    res.render('index',{ title: '电影' });
-});
+router.get('/', topic.topic_list);
+router.get('/all/:page', topic.topic_list);
+router.get('/blog', topic.topic_list);
+router.get('/blog/:page', topic.topic_list);
+router.get('/life', topic.topic_list);
+router.get('/life/:page', topic.topic_list);
+router.get('/music', topic.topic_list);
+router.get('/music/:page', topic.topic_list);
+router.get('/movie', topic.topic_list);
+router.get('/movie/:page', topic.topic_list);
 
 router.get('/about', function(req,res){
     res.render('about',{ title: '关于酷的' });

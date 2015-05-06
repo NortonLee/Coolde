@@ -11,7 +11,8 @@
 }
 .panel {
     margin-bottom: 13px;
-    background-color: #e1e1e1;
+    background-color: #f6f6f6;
+    position:static;
 }
 .breadcrumb > li {
     text-shadow: none;
@@ -64,6 +65,65 @@ textarea {
 }
 .panel > .cell:last-child {
     box-shadow: none;
+}
+.cell {
+  overflow: hidden;
+  position: relative;
+  padding: 10px 0px 10px 10px;
+  font-size: 15px;    
+}
+
+.panel .cell {
+  padding-right: 10px;
+  background: white;
+  border-top: 1px solid rgb(240, 240, 240);
+  &:nth-child(1) {
+    border-top: none;
+  }
+}
+
+.cell .reply_count {
+  width: 70px;
+  display: inline-block;
+  text-align: center;
+}
+
+.cell .count_of_replies {
+  color: rgb(158, 120, 192);
+}
+
+.cell .count_seperator {
+  margin: 0 -3px;
+  font-size: 10px;
+}
+
+.cell .count_of_visits {
+  font-size: 12px;
+  color: rgb(180, 180, 180);
+}
+
+.cell .cell {
+  padding: 10px 0px 0px 10px;
+}
+
+.cell:last-child {
+  border-bottom: none;
+}
+
+.cell.message, .cell[message_id] {
+  padding: 10px;
+}
+
+.cell.message a, .cell[message_id] a {
+  max-width: 460px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.cell.more {
+  padding: 10px;
 }
 
 .markdown-text p, .preview p {
@@ -747,4 +807,96 @@ select {
     background-color: #fff;
     border: 1px solid #ccc;
     width: 220px;
+}
+.left-menu{
+    height:auto;
+    position:fixed;
+    width:200px;
+    float: left;
+    left:40px;
+    z-index:999;
+    background-color: #fff;
+}
+.left-menu .header{
+    border-radius:15px 15px 0 0;
+    background-color: #034e85;
+    font-size: 1em;
+    padding: 10px;
+    color:#fff;
+}
+.left-menu .item{
+    font-size: 20px;
+}
+
+.left-menu .intrude-less{
+    padding: 5% 0 0 15%;
+    width:100%;
+    border: 1px solid #034e85;
+    border-radius:0 0 15px 15px;
+}
+
+.last_time {
+  font-size: 13px;
+  display: inline-block;
+  margin-left: 20px;
+  color: #777;
+}
+
+.last_time .last_active_time {
+  text-align: right;
+  min-width: 50px;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+a.last_time {
+  text-decoration: none;
+}
+
+.last_time .user_small_avatar {
+  height: 18px;
+  width: 18px;
+  vertical-align: middle;
+  margin-right: 0.5em;
+  border-radius: 3px;
+}
+
+.pagination {
+  height: 40px;
+  margin: 10px 0px 0px 10px;
+  ul {
+    box-shadow: none;
+  }
+}
+
+.pagination a {
+  line-height: 30px;
+  color: #f6f6f6;
+}
+
+.pagination li.active a {
+  color: #80bd01;
+}
+.topic_title_wrapper {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+a.topic_title {
+  color: #333;
+}
+
+a.topic_title:visited {
+  color: #888;
+}
+.topiclist-tab {
+  background-color: #e5e5e5;
+  color: #999;
+  padding: 2px 4px;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  font-size: 12px;
+  margin-right: 12px;
 }

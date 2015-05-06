@@ -225,7 +225,7 @@ a {
     left: 0;
 }
 #pagenavi .prev:before {
-    content: "\f060";
+    content: "<<";
     font: 1.3em FontAwesome;
     position: absolute;
     left: 0;
@@ -235,7 +235,7 @@ a {
     right: 0;
 }
 #pagenavi .next:before {
-    content: "\f061";
+    content: ">>";
     font: 1.3em FontAwesome;
     position: absolute;
     right: 0;
@@ -263,9 +263,9 @@ article {
 article h1.title {
     font-weight: 300;
     line-height: 35px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
-article h1.title a { color: #666 }
+article h3.title a { color: #666 }
 article .entry-content {
     line-height: 2;
     text-align: justify;
@@ -503,10 +503,10 @@ ul li a { -webkit-transition: all .2s ease-in;-moz-transition:all .2s ease-in;-o
 .container .mid-col footer.inner { text-align: center;margin:0px 70px 0px 40px;width:auto }
 .container .mid-col .mid-col-container { padding: 0px 70px 0px 100px;max-width:700px }
 #content { width: 100% }
-#content article { border-top: none;padding:80px 0px }
+#content article { border-top: none;padding:40px 0px }
 #content article .title { margin-left: 0px;font-size:2em;font-weight:800;line-height:1em }
 #content article.single-post .title { text-align: center;text-decoration:underline }
-#content article .entry-content { margin-left: 0px;line-height:1.4em;font-size:1.5em }
+#content article .entry-content { margin-left: 0px;line-height:1.4em;font-size:15px; }
 #content article .entry-content p { margin-top: 30px }
 #content article .entry-content .github-widget p { margin-top: 0px }
 #content article .entry-content .more-link:before { line-height: 1.2em }
@@ -519,9 +519,9 @@ ul li a { -webkit-transition: all .2s ease-in;-moz-transition:all .2s ease-in;-o
 #content article .entry-content table td { text-align: left }
 #content article .meta { color: #999;font-family:"Open Sans";font-weight:100;font-size:1.2em }
 #content article .meta .date { display: inline }
-#content article h1.title { font-family: "Open Sans";font-weight:800;font-size:3em;padding-bottom:15px; }
-#content article h1.title a { color: #333;-webkit-transition:color 0.3s;-moz-transition:color 0.3s;-o-transition:color 0.3s;transition:color 0.3s }
-#content div.archives h1.title { font-size: 3em }
+#content article h3.title { font-family: "Open Sans";font-weight:800;font-size:2em;padding-bottom:15px; }
+#content article h3.title a { color: #333;-webkit-transition:color 0.3s;-moz-transition:color 0.3s;-o-transition:color 0.3s;transition:color 0.3s }
+#content div.archives h3.title { font-size: 3em }
 #content article .about ul li span {margin-left: 30px;}
 
 .container .mid-col footer { width: 100% }
@@ -570,7 +570,7 @@ ul li a { -webkit-transition: all .2s ease-in;-moz-transition:all .2s ease-in;-o
     #content article .meta span.comments { display: none }
     #content article h1.title { overflow: hidden; }
     #content article pre code { word-wrap:break-word;}
-    #content article .entry-content { font-size:1.3em; }
+    #content article .entry-content { font-size:15px; }
 }
 #feedburner-count { position: absolute;top:0;right:0;clip:rect(4px, 85px, 15px, 4px) }
 article table.matrix td,
@@ -581,7 +581,7 @@ article table.matrix th { background-color: #ffd }
 ul.categories { font-family: "Open Sans" }
 ul.categories span.size { font-size: 0.7em }
 a:hover { -webkit-transition: color 0.3s;-moz-transition:color 0.3s;-o-transition:color 0.3s;transition:color 0.3s;color:#4466c5 }
-#content article h1.title a:hover,
+#content article h3.title a:hover,
 .left-col a:hover { color: #4466c5 }
 #page-navigation {
     font-family: arial;

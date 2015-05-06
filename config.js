@@ -7,7 +7,8 @@ var config = {
     ['movie', '电影'],
   ],
     
-    list_topic_count: 20,
+    list_topic_count: 15,
+    web_list_topic_cout:20,
     
 };
 

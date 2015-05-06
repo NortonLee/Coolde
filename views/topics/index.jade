@@ -1,12 +1,12 @@
 extends ../layout/layout
 
 block content
-    h1.title #{topic.title}
-    div.meta
-        span.type #{topic.type}
-        span.view #{topic.visit_count}
-        span.date #{topic.friendly_create_at}
-    div.entry-content
-        p #{topic.content}
-        //p #{topic.content}
+    article.page
+        h1.title #{topic.title}
+        div.meta
+            span.type #{topic.type}
+            span.view #{topic.visit_count}
+            span.date #{topic.friendly_create_at}
+        div.entry-content
+            p #{topic.content}
         

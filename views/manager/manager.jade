@@ -1,11 +1,58 @@
 extends ../layout/layout.admin
     
-block content
-    h1 
-        a(href='/topic/create') 新建文章
-        
+block content       
     - if(typeof(topics) !== 'undefined' && topics.length > 0){
-        p #{topics}
+     div.panel
+        div.header
+            文章列表
+        - topics.forEach(function(item){
+            div.cell
+                span.reply_count.pull-left
+                    span.count_of_visits= item.visit_count
+                a.last_time.pull-right
+                    span.last_active_time= item.friendly_create_at
+                div.topic_title_wrapper
+                    span.topiclist-tab= item.type
+                    a.topic_title(target="_blank" href="topic/" + item._id)= item.title
+        - })
+        - if(pages > 1){
+            ul.pagination
+                - var base_url = '?page=';
+                - var page_start = current_page - 2 > 0 ? current_page - 2 : 1;
+                - var page_end = page_start + 4 >= pages ? pages : page_start + 4;
+                - if(current_page == 1){
+                li.disabled
+                    a &laquo;
+                - }else{
+                li
+                    a(href=base_url + "1") &laquo;
+                -}
+                    a(href="#") &laquo;
+                - if(page_start > 1){
+                    li
+                        a ...
+                - }
+                - for(var i = page_start; i <= page_end; i++){
+                    - if(current_page == i){ console.log(i)
+                        li.active 
+                            a= i
+                    - }else{
+                        li 
+                            a(href=base_url + i)= i
+                    - }
+                - }
+                - if(page_end < pages){
+                    li
+                        a ...
+                - }
+                - if(current_page == pages){
+                    li.disabled
+                        a &raquo;
+                - }else{
+                    li
+                        a(href=base_url + pages) &raquo;
+                - }
+        - }
     - }else{
         div.inner
             p 无内容

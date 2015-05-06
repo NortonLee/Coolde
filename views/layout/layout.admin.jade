@@ -40,7 +40,21 @@ html
                     ul.nav.navbar-nav.navbar-right
                         li
                             <a href='/logout'>退出</a>
-    div.container.body-content  
+    - if(user)
+        div.left-menu
+            div.header 管理菜单
+            div.intrude-less
+                p.item
+                    a(href='/') Coolde
+                p.item
+                    a(href='/manager') 后台首页
+                p.item
+                    a(href='/topic/create') 新建文章 
+                p.item 
+                    a(href='/topic/create') 账户管理
+                p.item 
+                    a(href='/logout') 退出
+    div.container.body-content
         block content
     div.footer
         p.text-muted Copyright &copy;2015 - Norton Li

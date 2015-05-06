@@ -21,16 +21,17 @@ html
     block head
     
   body
-      div(class='container')
-        div(class="left-col")
-            div(class='intrude-less')
+      div.container
+        div.left-col
+            div.intrude-less
                 header(id='header',class='inner')
                     div(class='profilepic')
                         img(src='/images/profile.jpg',alt='Profile Picture',style='width:160px;')
                     hgroup
                         h1
                             <a href='/'>Coolde</a>
-                        <h2>酷的</h2>
+                        h2 
+                            <a href='/admin'> 酷的
                     nav(id='main-nav')
                         ul(class='main-navigation')
                             li
@@ -56,7 +57,6 @@ html
         div(class="mid-col")
             div(class="mid-col-container")
                 div#content.inner
-                    article.page
                         block content
         footer
             p ©Norton Li 2015
