@@ -3,6 +3,7 @@ var Topic = models.Topic;
 var validator = require('validator');
 var config = require('../config');
 var tools = require('../common/tools');
+var mdHelper = require('../common/mdHelper');
 
 exports.create = function(req, res, next){
     if(req.session.user === null || req.session.user === undefined){
@@ -89,6 +90,7 @@ exports.index = function (req, res, next) {
         topic.save();
         topic.friendly_create_at = tools.formatDate(topic.create_at);
         topic.friendly_update_at = tools.formatDate(topic.update_at);
+        topic.mdContent = mdHelper.markdown(topic.content);
         
         res.render('topics/index', {
             title: '内容查看',

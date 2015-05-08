@@ -18,6 +18,8 @@
     "validator": "3.22.1",
     "moment": "2.9.0",
     "eventproxy": "0.3.1",
-    "lodash": "3.6.0"
+    "lodash": "3.6.0",
+    "xss": "0.1.15",
+    "markdown-it": "3.0.3"
   }
 }
