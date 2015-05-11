@@ -1,0 +1,50 @@
+extends ../layout/layout.admin
+    
+block content
+    div.panel
+        div.header
+            账户管理
+        div.inner
+            - if(typeof(error) !== 'undefined' && error)
+                div.alert.alert-danger
+                   strong= error
+            - if(typeof(success) !== 'undefined' && success)
+                div.alert.alert-success
+                    strong= success
+            form#setting_form.form-horizontal(method="post" action="/manager/account")
+                div.control-group
+                    label.control-label(for="name") 用户名：
+                    input#name.form-control(type="text" value= user.userName readonly="true" size=30 name="name")
+                div.control-group
+                    label.control-label(for="website") 个人网站：
+                    input#websit.form-control(type="text" value= user.website size=30 name="website")
+                div.control-group
+                    label.control-label(for="email") 电子邮件：
+                    input#email.form-control(type="text" value= user.email size=30 name="email")
+                div.control-group
+                    label.control-label(for="address") 坐标：
+                    input#address.form-control(type="text" value= user.address size=30 name="address")
+                div.control-group
+                    label.control-label(for="weibo") 微博：
+                    input#weibo.form-control(type="text" value= user.weibo size=30 name="weibo")
+                div.control-group
+                    label.control-label(for="signature") 个性签名：
+                    input#signature.form-control(type="textare" value= typeof(user.signature) !== 'undefined' ? user.signature : '' size=30 name="signature")
+                input#action(type='hidden' name='action' value='change_account')
+                div.form-actions
+                    button.btn.btn-primary(type="submit") 保存设置
+    div.panel
+        div.header
+            更改密码
+        div.inner
+            form#change_pwd_form.form-horizontal(method="post" action="/manager/account")
+                div.control-group
+                    label.control-label(for="currentPass") 当前密码：
+                    input#currentPass.form-control(type="password" value="" size=30 name="current_pwd")
+                div.control-group
+                    label.control-label(for="newPass") 新密码：
+                    input#newPass.form-control(type="password" value="" size=30 name="new_pwd")
+                input#action(type='hidden' name='action' value='change_pwd')
+                div.form-actions
+                    button.btn.btn-primary(type="submit") 更改密码
+        

@@ -3,6 +3,7 @@ var express = require('express');
 var sign = require('./controllers/sign');
 var manager = require('./controllers/manager');
 var topic = require('./controllers/topic');
+var user = require('./controllers/user');
 
 var router = express.Router();
 
@@ -45,6 +46,10 @@ router.get('/topic/:tid', topic.index);
 router.get('/topic/:tid/edit', topic.showEdit);
 router.post('/topic/:tid/edit', topic.update);
 router.post('/topic/:tid/delete', topic.delete);
+
+//acount
+router.get('/manager/account', user.showAccount);
+router.post('/manager/account', user.updateAccount);
 
 module.exports = router;
 

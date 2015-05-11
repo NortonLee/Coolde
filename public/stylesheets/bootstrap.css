@@ -2968,10 +2968,26 @@ select[multiple].form-group-lg .form-control {
 }
 @media (min-width: 768px) {
   .form-horizontal .control-label {
-    padding-top: 7px;
-    margin-bottom: 0;
+    float:left;
+    padding-top: 5px;
     text-align: right;
+    width:160px;
   }
+}
+.form-horizontal .control-group {
+    margin-bottom: 20px;
+    *zoom: 1;
+}
+
+.form-horizontal .control-group:before,
+.form-horizontal .control-group:after {
+    display: table;
+    line-height: 0;
+    content: "";
+}
+
+.form-horizontal .control-group:after {
+    clear: both;
 }
 .form-horizontal .has-feedback .form-control-feedback {
   right: 15px;
@@ -6582,3 +6598,16 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+.form-actions {
+    padding: 19px 20px 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    *zoom: 1;
+}
+
+.form-actions:after {
+    clear: both;
+}
+.form-horizontal .form-actions {
+    padding-left: 180px;
+}
