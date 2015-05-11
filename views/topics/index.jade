@@ -7,6 +7,29 @@ block content
             span.type #{topic.type}
             span.view #{topic.visit_count}
             span.date #{topic.friendly_create_at}
+        - if(user)
+            div.manage_topic
+                a(href="/topic/#{topic._id}/edit")
+                    i.edit(title="编辑")
+                a.del(href="javascript:" data-id="#{topic._id}")
+                    i.delete(title="删除")
         div.entry-content
             div.topic_content
-                #{topic.content}
+                !{topic.mdContent}
+                
+    script(type='text/javascript').
+        (function(){
+            $('.del').click(function () {
+                var topicId = $(this).data('id');
+                if (topicId && confirm("确定要删除此话题吗？")) {
+                    $.post('/topic/' + topicId + '/delete', function (result) {
+                        if (!result.success) {
+                            alert(result.message);
+                        } else {
+                            location.href = '/';
+                        }
+                    });
+                }
+                return false;
+            });
+        })();

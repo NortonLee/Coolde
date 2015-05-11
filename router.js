@@ -41,8 +41,10 @@ router.get('/manager', manager.showManager);
 //topic
 router.get('/topic/create', topic.show);
 router.post('/topic/create', topic.create);
-router.get('/topic/:tid', topic.index);  
-
+router.get('/topic/:tid', topic.index);
+router.get('/topic/:tid/edit', topic.showEdit);
+router.post('/topic/:tid/edit', topic.update);
+router.post('/topic/:tid/delete', topic.delete);
 
 module.exports = router;
 

@@ -10,7 +10,7 @@ block content
             span.view #{topic.visit_count}
             span.date #{topic.friendly_create_at}
         div.entry-content
-           p #{topic.brief_content}
+           !{topic.brief_content}
     - })
     - if(pages > 1){
     - var next_url = '/' + type + "/" + (current_page + 1);

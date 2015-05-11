@@ -608,3 +608,15 @@ dd {
     color:#ffffff;
     width: 100%;
 }
+
+.manage_topic a{
+    margin-right: 5px;
+}
+
+i.edit:before{
+    content: "编辑";
+}
+
+i.delete:before{
+    content: "删除";
+}
