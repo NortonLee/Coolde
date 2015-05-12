@@ -3,6 +3,24 @@ var crypto = require('crypto');
 var User = models.User;
 var validator = require('validator');
 var config = require('../config');
+var fs = require("fs");
+var formidable = require('formidable');
+
+var postData;
+
+exports.change_profile = function(req, res, next){
+    var form = new formidable.IncomingForm();
+    form.uploadDir = "./temp/";
+    form.parse(req, function(err, fields, files) {
+        fs.readFile(files.file.path, function (err, data) {
+          if (err) throw err;
+            fs.writeFileSync("../public/images/profile.jpg", data); 
+        });
+        return res.render('manager/account', {
+            title:"账户管理"
+        });
+    });
+};
 
 exports.showAccount = function(req, res, next){
     if(req.session.user === null || req.session.user === undefined){
@@ -20,6 +38,7 @@ exports.showAccount = function(req, res, next){
         if(req.query.update === 'fail'){
             user.error = "密码信息不能为空。";
         }
+        
         return res.render('manager/account', user);
   });
 };

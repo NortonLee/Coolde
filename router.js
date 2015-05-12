@@ -50,6 +50,7 @@ router.post('/topic/:tid/delete', topic.delete);
 //acount
 router.get('/manager/account', user.showAccount);
 router.post('/manager/account', user.updateAccount);
+router.post('/manager/change_profile', user.change_profile);
 
 module.exports = router;
 

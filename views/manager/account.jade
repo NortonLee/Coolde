@@ -13,6 +13,10 @@ block content
                     strong= success
             form#setting_form.form-horizontal(method="post" action="/manager/account")
                 div.control-group
+                    label.control-label(for="name") 头像：
+                    a#profile_brower(href="javascript:")
+                        img#start_upload(src='/images/profile.jpg',alt='Profile Picture',style='width:160px;')
+                div.control-group
                     label.control-label(for="name") 用户名：
                     input#name.form-control(type="text" value= user.userName readonly="true" size=30 name="name")
                 div.control-group
@@ -47,4 +51,41 @@ block content
                 input#action(type='hidden' name='action' value='change_pwd')
                 div.form-actions
                     button.btn.btn-primary(type="submit") 更改密码
-        
+                    
+    script(type='text/javascript').
+        (function(){
+            var uploader = new plupload.Uploader({
+                browse_button: 'profile_brower',
+                url: 'manager/change_profilep',
+                chunk_size: "1mb",
+                multi_selection: false,
+                flash_swf_url: 'javascript/plupload-2.1.2/Moxie.swf',
+                silverlight_xap_url: 'javascript/plupload-2.1.2/Moxie.xap',
+                max_retries: 1,
+                filters: {
+                    mime_types : [ //只允许上传图片和zip文件
+                    { title : "Image files", extensions : "jpg,gif,png" }
+                  ],
+                    max_file_size: '2mb',
+                    prevent_duplicates: false
+                }
+            });
+            
+            uploader.init();
+            
+            uploader.bind('FilesAdded', function (uploader, files) {
+                $("#start_upload").click();
+            });
+            
+            uploader.bind('FileUploaded', function (uploader, file, res) {
+                if (res.status == 200) {
+                    window.location.reload();
+                    uploader.removeFile(file);
+                }
+            });
+            
+            document.getElementById('start_upload').onclick = function () {
+                uploader.settings['url'] = "../../manager/change_profile?filename=22222";
+                uploader.start();
+            }
+        })();
