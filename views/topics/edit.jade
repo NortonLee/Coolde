@@ -3,7 +3,7 @@ extends ../layout/layout.admin
 block content
     div.panel
         div.header
-            - if(topic === 'undefined'){
+            - if(typeof(topic) === 'undefined'){
                 发布文章
             - }else{
                 编辑文章

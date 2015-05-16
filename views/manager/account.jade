@@ -57,7 +57,7 @@ block content
             var uploader = new plupload.Uploader({
                 browse_button: 'profile_brower',
                 url: 'manager/change_profilep',
-                chunk_size: "1mb",
+                chunk_size: "2mb",
                 multi_selection: false,
                 flash_swf_url: 'javascript/plupload-2.1.2/Moxie.swf',
                 silverlight_xap_url: 'javascript/plupload-2.1.2/Moxie.xap',
@@ -66,7 +66,7 @@ block content
                     mime_types : [ //只允许上传图片和zip文件
                     { title : "Image files", extensions : "jpg,gif,png" }
                   ],
-                    max_file_size: '2mb',
+                    max_file_size: '5mb',
                     prevent_duplicates: false
                 }
             });

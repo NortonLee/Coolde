@@ -10,11 +10,13 @@ var postData;
 
 exports.change_profile = function(req, res, next){
     var form = new formidable.IncomingForm();
-    form.uploadDir = "./temp/";
+    form.uploadDir = "../public/images/";
     form.parse(req, function(err, fields, files) {
         fs.readFile(files.file.path, function (err, data) {
           if (err) throw err;
-            fs.writeFileSync("../public/images/profile.jpg", data); 
+            fs.writeFile("../public/images/profile.jpg", data, function(err){
+                fs.unlinkSync(files.file.path);
+            });
         });
         return res.render('manager/account', {
             title:"账户管理"

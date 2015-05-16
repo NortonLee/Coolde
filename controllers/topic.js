@@ -215,7 +215,6 @@ exports.topic_list = function(req, res ,next){
             type = "movie";
             break;
     }
-    console.log(type);
     var limit = config.web_list_topic_cout;
     
     var opt = {skip: (page - 1) * limit, limit: limit, sort: '-create_at'};
