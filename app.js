@@ -4,7 +4,6 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var settings = require('./settings');
 var session = require('express-session');
 var flash = require('connect-flash');
 
@@ -25,7 +24,7 @@ app.use(cookieParser());
 app.use(flash());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
-    secret: settings.cookieSecret
+    secret: "cooldeNorton"
 }));
 
 app.use(function(req, res, next){

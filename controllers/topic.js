@@ -228,14 +228,17 @@ exports.topic_list = function(req, res ,next){
         };
     }
     
-    console.log(query);
-    
     Topic.find(query,'',opt, function (err, docs) {
         if (err) {
+            console.log(err);
           return next(err);
         }
+        
         if (docs.length === 0) {
-          return next(null, []);
+          return res.render('index', {
+                title: title,
+                topics: docs
+            });
         }
         
         docs.forEach(function(topic){

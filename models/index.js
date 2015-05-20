@@ -1,10 +1,26 @@
 var mongoose = require('mongoose');
-var settings = require('../settings');
+global.db = mongoose.createConnection();
 
-mongoose.connect(settings.url);
-var db = mongoose.connection;
-/*var db = mongoose.createConnection();
-db.openSet("mongodb://user:pwd@localhost:27020/testing,mongodb://example.com:27020,mongodb://localhost:27019");*/
+var host, database, port, options;
+
+if (process.env.SERVER_SOFTWARE == 'bae/3.0') {
+    host = 'mongo.duapp.com';
+    database = 'tHKwaRJSTYLOKHPubAnz';
+    port = 8908;
+    options = {
+        server: {poolSize: 5},
+        user: '36233c7132c2418ab17a6e8b6ce83bdf',
+        pass: '309fc530ea7644c69bdaa781dbd3e402',
+    };
+} else {
+    host = '127.0.0.1';
+    database = 'coolde';
+    port = 27017;
+}
+
+db.on('disconnected', function() {
+    db.open(host, database, port, options);
+});
 
 db.on('error', function(error){
     console.log(error);
@@ -17,16 +33,11 @@ db.on('open',function(error){
     console.log('connect success.');
 });
 
-/*mongoose.connect(settings.url, function (err) {
-  if (err) {
-    console.error('connect to %s error: ', settings.db, err.message);
-    process.exit(1);
-  }
-});*/
-
 // models
 require('./user');
 require('./topic');
 
-exports.User = mongoose.model('User');
-exports.Topic = mongoose.model('Topic');
+exports.User = db.model('User');
+exports.Topic = db.model('Topic');
+
+db.open(host, database, port, options);

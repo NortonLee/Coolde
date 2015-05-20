@@ -19,7 +19,10 @@ exports.showManager = function(req, res, next){
           return callback(err);
         }
         if (docs.length === 0) {
-          return callback(null, []);
+          return res.render('manager/manager', {
+                title: "首页",
+                topics: docs
+            });
         }
         
         docs.forEach(function(topic){
