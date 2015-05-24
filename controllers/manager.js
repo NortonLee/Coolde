@@ -3,11 +3,7 @@ var tools = require('../common/tools');
 var models = require('../models');
 var Topic = models.Topic;
 
-exports.showManager = function(req, res, next){
-    if(req.session.user === null || req.session.user === undefined){
-        res.redirect('/login');
-    }
-    
+exports.showManager = function(req, res, next){    
     var page = Number(req.query.page) || 1;
     var limit = config.list_topic_count;
     
@@ -38,5 +34,11 @@ exports.showManager = function(req, res, next){
                 pages: pages,
             });
         });
+    });
+};
+
+exports.showSystem = function(req, res, next){
+    return res.render('manager/system',{
+        title: "系统管理"
     });
 };

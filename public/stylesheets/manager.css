@@ -889,6 +889,12 @@ a.topic_title {
 a.topic_title:visited {
   color: #888;
 }
+
+a.cpps{
+    width: 20%;
+    float: left;
+    margin-left: 20px;
+}
 .topiclist-tab {
   background-color: #e5e5e5;
   color: #999;
@@ -899,4 +905,18 @@ a.topic_title:visited {
   -o-border-radius: 3px;
   font-size: 12px;
   margin-right: 12px;
+    float: left;
+}
+.operate{
+    margin-right:  5%;
+    display:block;
+    width: 10px;
+    float: right;
+}
+.right-col{
+    position:fixed;
+    top:20%;
+    right:5%;
+    margin-top:-50px;
+    z-index: 999
 }

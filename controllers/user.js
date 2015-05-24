@@ -24,11 +24,7 @@ exports.change_profile = function(req, res, next){
     });
 };
 
-exports.showAccount = function(req, res, next){
-    if(req.session.user === null || req.session.user === undefined){
-        res.redirect('/login');
-    }
-    
+exports.showAccount = function(req, res, next){    
     User.findOne({userName: req.session.user.userName}, function (err, user) {
         if (err) {
           return next(err);
@@ -41,15 +37,11 @@ exports.showAccount = function(req, res, next){
             user.error = "密码信息不能为空。";
         }
         
-        return res.render('manager/account', user);
+        return res.render('manager/account', { title:"账户管理", user:user});
   });
 };
 
-exports.updateAccount = function(req, res ,next){
-    if(req.session.user === null || req.session.user === undefined){
-        res.redirect('/login');
-    }
-    
+exports.updateAccount = function(req, res ,next){    
     function showMessage(msg, data, isSuccess) {
         data = data || req.body;
         var user = {
@@ -66,7 +58,7 @@ exports.updateAccount = function(req, res ,next){
         } else {
             user.error = msg;
         }
-        res.render('manager/account', user);
+        res.render('manager/account', { title:"账户管理", user:user});
     }
     
     var action = req.body.action;
@@ -109,7 +101,7 @@ exports.updateAccount = function(req, res ,next){
         }
         User.findOne({userName: req.session.user.userName}, function(err, user){console.log(user);
             if(user.password != current_passhash && user.password != req.body.current_pwd){
-                return showMessage('当前密码错误。', user);
+                return showMessage('当前密码错误。', { title:"账户管理", user:user});
             }
                                                                                 
             var md = crypto.createHash('md5');
@@ -119,7 +111,7 @@ exports.updateAccount = function(req, res ,next){
                 if (err) {
                   return next(err);
                 }
-                return showMessage('密码已被修改。', user, true);
+                return showMessage('密码已被修改。', { title:"账户管理", user:user}, true);
               });
         });
     } 

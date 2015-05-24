@@ -36,8 +36,10 @@ db.on('open',function(error){
 // models
 require('./user');
 require('./topic');
+require('./cps');
 
 exports.User = db.model('User');
 exports.Topic = db.model('Topic');
+exports.CPS = db.model('CPS');
 
 db.open(host, database, port, options);

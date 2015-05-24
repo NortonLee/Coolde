@@ -1,6 +1,9 @@
 extends ../layout/layout
 
 block content
+    a.bshareDiv
+        script(type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#uuid=&amp;style=3&amp;fs=4&amp;textcolor=#000&amp;bgcolor=#DDD&amp;text=分享到&amp;pophcol=1")
+        <script type="text/javascript"> bShare.init(); </script>
     article.post
         h3.title #{topic.title}
         div.meta

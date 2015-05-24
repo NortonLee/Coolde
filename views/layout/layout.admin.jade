@@ -38,7 +38,6 @@ html
                 a.navbar-brand(href="/") Coolde
             - if(user)
                 div.navbar-collapse.collapse
-                    
                     ul.nav.navbar-nav
                         li
                             a(href='/manager') 后台首页
@@ -46,9 +45,19 @@ html
                             a(href='/topic/create') 新建文章
                         li
                             a(href='/manager/account') 账户管理
+                        li.dropdown
+                            a#dropdown_leave.dropdown-toggle(href='#' data-toggle="dropdown") CPS管理
+                            ul.dropdown-menu(role="menu" aria-labelledby="dropdown_leave")
+                                li(role="menuitem")
+                                    a(href='/cps/edit') 新建CPS
+                                li(role="menuitem")
+                                    a(href='/cps/list') CPS商盟
+                        li
+                            a(href='/manager/system') 系统管理
                     ul.nav.navbar-nav.navbar-right
                         li
                             <a href='/logout'>退出</a>
+    div#show_content.right-col
     div.container.body-content
         block content
     div.footer

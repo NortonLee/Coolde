@@ -4,6 +4,8 @@ var sign = require('./controllers/sign');
 var manager = require('./controllers/manager');
 var topic = require('./controllers/topic');
 var user = require('./controllers/user');
+var cps = require('./controllers/cps');
+var auth = require('./controllers/auth');
 
 var router = express.Router();
 
@@ -37,20 +39,30 @@ router.post('/login', sign.login);
 router.get('/logout', sign.logout);
 
 //manager
-router.get('/manager', manager.showManager);
+router.get('/manager', auth.userRequired, manager.showManager);
 
 //topic
-router.get('/topic/create', topic.show);
-router.post('/topic/create', topic.create);
-router.get('/topic/:tid', topic.index);
-router.get('/topic/:tid/edit', topic.showEdit);
-router.post('/topic/:tid/edit', topic.update);
-router.post('/topic/:tid/delete', topic.delete);
+router.get('/topic/create', auth.userRequired, topic.show);
+router.post('/topic/create', auth.userRequired, topic.create);
+router.get('/topic/:tid', auth.userRequired, topic.index);
+router.get('/topic/:tid/edit', auth.userRequired, topic.showEdit);
+router.post('/topic/:tid/edit', auth.userRequired, topic.update);
+router.post('/topic/:tid/delete', auth.userRequired, topic.delete);
 
 //acount
-router.get('/manager/account', user.showAccount);
-router.post('/manager/account', user.updateAccount);
-router.post('/manager/change_profile', user.change_profile);
+router.get('/manager/account', auth.userRequired, user.showAccount);
+router.post('/manager/account', auth.userRequired, user.updateAccount);
+router.post('/manager/change_profile', auth.userRequired, user.change_profile);
+
+//cps
+router.get('/cps/edit', auth.userRequired, cps.showCPS);
+router.post('/cps/edit', auth.userRequired, cps.create);
+router.get('/cps/list', auth.userRequired, cps.showList);
+router.get('/cps/:tid', auth.userRequired, cps.siwtch);
+router.get('/cps/:tid/delete', auth.userRequired, cps.delete);
+
+//system
+router.get('/manager/system', auth.userRequired, manager.showSystem);
 
 module.exports = router;
 

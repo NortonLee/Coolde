@@ -8,7 +8,7 @@ md.set({
   html:         true,        // Enable HTML tags in source
   xhtmlOut:     false,        // Use '/' to close single tags (<br />)
   breaks:       false,        // Convert '\n' in paragraphs into <br>
-  linkify:      true,        // Autoconvert URL-like text to links
+  linkify:      false,        // Autoconvert URL-like text to links
   typographer:  true,        // Enable smartypants and other sweet transforms
 });
 
@@ -42,5 +42,9 @@ var myxss = new jsxss.FilterXSS({
 });
 
 exports.markdown = function (text) {
-  return '<div class="markdown-text">' + myxss.process(md.render(text || '')) + '</div>';
+    if(text.indexOf('embed') !== -1){
+        return '<p>' + text + '</p>';
+    }else{
+        return '<div class="markdown-text">' + myxss.process(md.render(text || '')) + '</div>';
+    }
 };

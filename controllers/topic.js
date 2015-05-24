@@ -1,34 +1,27 @@
 var models = require('../models');
 var Topic = models.Topic;
+var CPS = models.CPS;
 var validator = require('validator');
 var config = require('../config');
 var tools = require('../common/tools');
 var mdHelper = require('../common/mdHelper');
 
 exports.show = function(req, res){
-    if(req.session.user === null || req.session.user === undefined){
-        res.redirect('/login');
-    }
-    
     res.render('topics/edit', {
         title: '新建文章',
         tabs: config.tabs
     });
 };
 
-exports.create = function(req, res, next){
-    if(req.session.user === null || req.session.user === undefined){
-        res.redirect('/login');
-    }
-    
+exports.create = function(req, res, next){    
     var title = validator.trim(req.body.title);
     title = validator.escape(title);
     var tab = validator.trim(req.body.tab);
     tab = validator.escape(tab);
     var content = validator.trim(req.body.t_content);
     var allTabs = config.tabs.map(function (tPair) {
-    return tPair[0];
-  });
+        return tPair[0];
+    });
 
   // 验证
   var editError;
@@ -69,9 +62,6 @@ exports.create = function(req, res, next){
 };
 
 exports.update = function(req, res, next){
-    if(req.session.user === null || req.session.user === undefined){
-        res.redirect('/login');
-    }
     var topic_id = req.params.tid;
     Topic.findOne({_id: topic_id}, function (error,topic) {
         if(error){
@@ -228,10 +218,25 @@ exports.topic_list = function(req, res ,next){
         };
     }
     
+    var cps;
+    var cps_opt = {limit: config.cps_limit};
+    var cps_query = {'status': true};
+    if(config.cps_switch == "on"){
+        CPS.find(cps_query, '', cps_opt, function(err,docs){ 
+            if (err) {
+                console.log(err);
+                return next(err);
+            }
+            var index = Math.ceil(Math.random()*docs.length);
+            cps = docs[index-1];
+            console.log(docs);
+        });
+    }
+    
     Topic.find(query,'',opt, function (err, docs) {
         if (err) {
             console.log(err);
-          return next(err);
+            return next(err);
         }
         
         if (docs.length === 0) {
@@ -254,6 +259,7 @@ exports.topic_list = function(req, res ,next){
                 current_page: page,
                 pages: pages,
                 type: type,
+                cps: cps
             });
         });
     });
@@ -263,7 +269,6 @@ exports.delete = function(req, res, next){
     var topic_id = req.params.tid;
     
     Topic.findOne({_id: topic_id}, function (err, topic) {
-        console.log(topic_id);
         if (err) {
            return res.render('error', {
                 title: "Error",

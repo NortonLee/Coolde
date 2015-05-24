@@ -1,0 +1,34 @@
+extends ../layout/layout.admin
+    
+block content
+    div.panel
+        div.header
+            新建CPS
+        div.inner
+            - if(typeof(validateError) !== 'undefined')
+                div.alert.alert-danger
+                   strong= validateError
+            - if(typeof(success) !== 'undefined')
+                div.alert.alert-success
+                    strong= success
+            form#setting_form.form-horizontal(method="post" action="/cps/edit")
+                div.control-group
+                    label.control-label(for="tab") CPS来源：
+                    select#tab-value(name="tab")
+                        option(value="")请选择
+                        - var tabValue='';
+                        - if(typeof(tab) !== 'undefined'){
+                        - tabValue = tab;
+                        - }
+                        - cps_sources.forEach(function(item){
+                            - if(item[0] == tabValue){
+                                option(value=item[0] selected) #{item[1]}
+                            - }else{
+                                option(value=item[0]) #{item[1]}
+                            - }
+                        - });
+                div.control-group
+                    label.control-label(for="html_content") HTML内容：
+                    textarea#html.form-control(rows=5 style="width:400px" name="html_content")
+                div.form-actions
+                    button.btn.btn-primary(type="submit") 保存

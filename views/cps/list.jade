@@ -1,0 +1,80 @@
+extends ../layout/layout.admin
+    
+block content
+    - if(typeof(cpss) !== 'undefined' && cpss.length > 0){
+    div.panel
+        div.header
+            span CPS商盟
+            a(style="float:right" href="/cps/edit") 新建CPS
+        - cpss.forEach(function(item){
+            div.cell
+                a.last_time.pull-right
+                    span.last_active_time= item.friendly_create_at
+                div.topic_title_wrapper
+                    span.topiclist-tab= item.source
+                    a.cpps(href="javascript:" data-content="#{item.html_content}")= item._id
+                    a.delete.operate(href="javascript:" data-id="#{item._id}") 删除
+                    a.operate(href="/cps/" + item._id)= item.operate
+        - })
+        - if(pages > 1){
+            ul.pagination
+                - var base_url = '?page=';
+                - var page_start = current_page - 2 > 0 ? current_page - 2 : 1;
+                - var page_end = page_start + 4 >= pages ? pages : page_start + 4;
+                - if(current_page == 1){
+                li.disabled
+                    a &laquo;
+                - }else{
+                li
+                    a(href=base_url + "1") &laquo;
+                -}
+                    a(href="#") &laquo;
+                - if(page_start > 1){
+                    li
+                        a ...
+                - }
+                - for(var i = page_start; i <= page_end; i++){
+                    - if(current_page == i){
+                        li.active 
+                            a= i
+                    - }else{
+                        li 
+                            a(href=base_url + i)= i
+                    - }
+                - }
+                - if(page_end < pages){
+                    li
+                        a ...
+                - }
+                - if(current_page == pages){
+                    li.disabled
+                        a &raquo;
+                - }else{
+                    li
+                        a(href=base_url + pages) &raquo;
+                - }
+        - }
+    - }else{
+        div.inner
+            p 无内容
+    - }
+    
+    script(type='text/javascript').
+        (function(){
+            $('.cpps').hover(function(){
+                $("#show_content").html($(this).data('content'));
+            });
+            $('.cpps').mouseleave(function(){
+                $("#show_content").html("");
+            });          
+            
+            $('.delete').click(function () {
+                var cps_id = $(this).data('id');
+                if (cps_id && confirm("确定要删除吗？")) {
+                    $.get("/cps/" + cps_id + "/delete", function () {
+                        location.href = '/cps/list';
+                    });
+                }
+                return false;
+            });
+        })();

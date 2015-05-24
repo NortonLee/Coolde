@@ -5,12 +5,12 @@ block content
         div.header
             账户管理
         div.inner
-            - if(typeof(error) !== 'undefined' && error)
+            - if(typeof(user) !== 'undefined' && user.error)
                 div.alert.alert-danger
-                   strong= error
-            - if(typeof(success) !== 'undefined' && success)
+                   strong= user.error
+            - if(typeof(user) !== 'undefined' && user.success)
                 div.alert.alert-success
-                    strong= success
+                    strong= user.success
             form#setting_form.form-horizontal(method="post" action="/manager/account")
                 div.control-group
                     label.control-label(for="name") 头像：
@@ -63,7 +63,7 @@ block content
                 silverlight_xap_url: 'javascript/plupload-2.1.2/Moxie.xap',
                 max_retries: 1,
                 filters: {
-                    mime_types : [ //只允许上传图片和zip文件
+                    mime_types : [ 
                     { title : "Image files", extensions : "jpg,gif,png" }
                   ],
                     max_file_size: '5mb',
