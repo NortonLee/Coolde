@@ -83,7 +83,6 @@ exports.showList = function(req, res, next){
 exports.create = function(req, res, next){    
     var tab = validator.trim(req.body.tab);
     tab = validator.escape(tab);
-        console.log(tab);
     var html_content = validator.trim(req.body.html_content);
     var allTabs = config.cps_sources.map(function (tPair) {
         return tPair[0];

@@ -3,8 +3,11 @@ extends layout/layout
 block content
     - topics.forEach(function(topic){
     article.post
-        h3.title 
-            a(href="topic/" + topic._id) #{topic.title}
+        h3.title
+            - if(topic.isTop){
+            span.top [置顶]
+            - }
+            a(href="/topic/" + topic._id) #{topic.title}
         div.meta
             span.type #{topic.type}
             span.view #{topic.visit_count}

@@ -12,8 +12,12 @@ block content
                 a.last_time.pull-right
                     span.last_active_time= item.friendly_create_at
                 div.topic_title_wrapper
+                    - if(item.isTop){
+                    span.topic_top_wrapper [置顶]
+                    - }
                     span.topiclist-tab= item.type
                     a.topic_title(target="_blank" href="topic/" + item._id)= item.title
+                    a.top.operate(href="javascript:" data-id="#{item._id}")  置顶/取消
         - })
         - if(pages > 1){
             ul.pagination
@@ -57,4 +61,15 @@ block content
         div.inner
             p 无内容
     - }
-        
+    script(type='text/javascript').
+        (function(){            
+            $('.top').click(function () {
+                var topic_id = $(this).data('id');
+                if (topic_id) {
+                    $.get("/topic/top/" + topic_id, function () {
+                        location.href = '/manager';
+                    });
+                }
+                return false;
+            });
+        })();

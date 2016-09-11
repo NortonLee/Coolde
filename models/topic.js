@@ -9,7 +9,8 @@ var topicSechma = new mongoose.Schema({
     update_at: {type: Date, default: Date.now },
     type: {type: String},
     deleted: {type: Boolean, default: false},
-    visit_count: {type: Number, default: 0}
+    visit_count: {type: Number, default: 0},
+    isTop: { type: Boolean, default:false }
 });
 
 topicSechma.index({create_at: -1});

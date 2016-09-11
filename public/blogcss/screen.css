@@ -140,12 +140,6 @@ a {
     padding: 38px 0;
     margin-top: -38px;
 }
-#main-nav>ul>li>a:after {
-    content: "\f078";
-    color: #ccc;
-    font: 12px FontAwesome;
-    padding-left: 10px;
-}
 #main-nav>ul>li>a:only-child:after { content: "" }
 @media screen and (max-width: 1040px) { 
     #main-nav>ul>li>a { padding: 18px 0 }
@@ -522,9 +516,9 @@ ul li a { -webkit-transition: all .2s ease-in;-moz-transition:all .2s ease-in;-o
 #content article h3.title { font-family: "Open Sans";font-weight:800;font-size:2em;padding-bottom:15px; }
 #content article h3.title a { color: #333;-webkit-transition:color 0.3s;-moz-transition:color 0.3s;-o-transition:color 0.3s;transition:color 0.3s }
 #content div.archives h3.title { font-size: 3em }
-#content article .about ul li span {margin-left: 30px;}
+#content article .about ul li span {display: inline-block; width: 110px; margin-left: 5px;}
 
-.right-col{position:fixed;top:35%;right:5%;margin-top:-50px;z-index: 999}
+.right-col{position:fixed;bottom:10%;right:1%;margin-bottom:-50px;z-index: 999}
 
 .container .mid-col footer { width: 100% }
 .left-col { width: 23%;position:fixed;height:100%;z-index:0;  }
@@ -542,6 +536,12 @@ ul li a { -webkit-transition: all .2s ease-in;-moz-transition:all .2s ease-in;-o
     body { margin: 0 0 }
 }
 @media screen and (max-width: 700px) { 
+    .profilepic{
+        display: none;
+    }
+    .copyright{
+        display: none;
+    }
     .container .credit-box { display: none }
     .left-col {
         position: relative;
@@ -556,7 +556,7 @@ ul li a { -webkit-transition: all .2s ease-in;-moz-transition:all .2s ease-in;-o
     .left-col #header #main-nav ul { display: block }
     .left-col #header #main-nav ul li {
         display: inline;
-        margin-right: 10px;
+        margin-right: 4px;
     }
     .container .mid-col {
         float: none;
@@ -589,6 +589,7 @@ a:hover { -webkit-transition: color 0.3s;-moz-transition:color 0.3s;-o-transitio
     font-family: arial;
     width: 100%;
 }
+#content article h3.title span.top { color:chartreuse; font-size: 20px; }
 #page-navigation div { display: inline-block }
 #page-navigation div.next { float: right }
 
@@ -621,4 +622,29 @@ i.edit:before{
 
 i.delete:before{
     content: "删除";
+}
+
+.u-blog{
+    background: url(../img/icons.png);
+    background-position: 70px -98px;
+}
+.u-life{
+    background: url(../img/icons.png);
+    background-position: -145px -50px;
+}
+.u-music{
+    background: url(../img/icons.png);
+    background-position: 20px 0px;
+}
+.u-movie{
+    background: url(../img/icons.png);
+    background-position: 70px -5px;
+}
+.u-about{
+    background: url(../img/icons.png);
+    background-position: 118px -98px;
+}
+
+.u-blog:before,.u-life:before,.u-music:before,.u-movie:before,.u-about:before{
+    content: "\f075";
 }

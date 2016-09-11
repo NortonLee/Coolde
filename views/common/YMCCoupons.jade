@@ -1,0 +1,70 @@
+doctype 
+html
+  head
+    meta(name="baidu-site-verification",content="ArTidSY7Ks")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, minimal-ui")
+    meta(name="keywords" content="要买车优惠券,车达人优惠券,要买车,买车优惠券,买车折扣,卜广齐,汽车电商,买车就上要买车网,汽车电商优惠券,要买车网优惠券,买车优惠券")
+    
+    title  要买车优惠券-优惠券持续更新~ — Coolde @Norton Li
+    link(rel='stylesheet',href='/stylesheets/common.css')
+    script(src='/javascripts/jquery-1.11.2.min.js')
+    script(src='/javascripts/baidu.js')
+div.declare
+    img(src='/img/ymc.png', style="width:0px;height:0px;overflow:hidden; display:block;")
+    h2 【要买车】网购优惠券
+    h3 领取优惠券前请先点击<a href="http://t.cn/RqRcj0X">用户认证</a>(需要下载<a href="http://a.app.qq.com/o/simple.jsp?pkgname=com.yuntu.yaomaiche">要买车APP</a>)
+    p 输入手机号码认证完成后，您可以添加我的微信[Norton](<a href='/img/wx.png' target='_blank'><i>点击这里</i></a>)或者QQ[957657843](<a href='http://qm.qq.com/cgi-bin/qm/qr?k=8cwpbuLoJEWqiG53Xaksr1DfKr7q88hd' target='_blank'><i>点击这里</i></a>)咨询领取优惠券。
+div.inner
+    - ymc_coupons.forEach(function(item){
+        - if(item[4] == '已被其他人抢走'){
+            div.used
+                em #{item[0]}
+                span   #{item[1]}
+                div.code
+                    b #{item[4]}
+                div.time
+                    有效期:
+                    span #{item[3]}
+        - }
+        - if(item[4] == '已过期'){
+            div.expire
+                em #{item[0]}
+                span   #{item[1]}
+                div.code
+                    b #{item[4]}
+                div.time
+                    有效期:
+                    span #{item[3]}
+        - }
+        - if(item[4] == '点击认证') {
+                div.c_item
+                    em #{item[0]}
+                    span   #{item[1]}
+                    div.code
+                        a(href='#{item[2]}',target='_blank')
+                            b #{item[4]}
+                    div.time
+                        有效期:
+                        span #{item[3]}
+        -}
+    - });
+<!-- 多说评论框 start -->
+<div class="ds-thread" data-thread-key="coupons" data-title="要买车优惠券" data-url="www.coolde.cn/common/coupons"></div>
+<!-- 多说评论框 end -->
+div.wish
+    h1 祝您早日提车~
+div.footer
+     h2 <a href='/'>@Coolde</a>
+div.hold
+script(type='text/javascript').
+     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+        var duoshuoQuery = {short_name:"coolde"};
+            (function() {
+                var ds = document.createElement('script');
+                ds.type = 'text/javascript';ds.async = true;
+                ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+                ds.charset = 'UTF-8';
+                (document.getElementsByTagName('head')[0] 
+                 || document.getElementsByTagName('body')[0]).appendChild(ds);
+            })();
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1255344755'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1255344755%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>

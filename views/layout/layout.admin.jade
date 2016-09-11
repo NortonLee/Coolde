@@ -1,6 +1,7 @@
 doctype 
 html
   head
+    meta(name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, minimal-ui")
     - if (typeof(title) == 'undefined')
         title Coolde, Norton's Yard
     - else 
@@ -23,6 +24,7 @@ html
     script(src='/javascripts/jquery-1.11.2.min.js')
     script(src='/javascripts/modernizr.js')
     script(src='/javascripts/slash.js')
+    script(src='/javascripts/baidu.js')
     script(src='/javascripts/bootstrap.min.js')
     script(src='/javascripts/plupload-2.1.2/plupload.full.min.js')
     block head
@@ -61,4 +63,6 @@ html
     div.container.body-content
         block content
     div.footer
-        p.text-muted Copyright &copy;2015 - Norton Li
+        p.text-muted Copyright &copy;2015-!{(new Date()).getFullYear()} by Norton Li
+        p.text-muted
+            <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1255344755'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1255344755%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>

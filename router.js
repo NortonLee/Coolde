@@ -6,6 +6,7 @@ var topic = require('./controllers/topic');
 var user = require('./controllers/user');
 var cps = require('./controllers/cps');
 var auth = require('./controllers/auth');
+var config = require('./config');
 
 var router = express.Router();
 
@@ -20,6 +21,11 @@ router.get('/music', topic.topic_list);
 router.get('/music/:page', topic.topic_list);
 router.get('/movie', topic.topic_list);
 router.get('/movie/:page', topic.topic_list);
+router.get('/common/coupons',function(req,res){
+    res.render('./common/YMCCoupons',{
+        ymc_coupons:config.ymc_coupons
+    });
+});
 
 router.get('/about', function(req,res){
     res.render('about',{ title: '关于酷的' });
@@ -44,10 +50,11 @@ router.get('/manager', auth.userRequired, manager.showManager);
 //topic
 router.get('/topic/create', auth.userRequired, topic.show);
 router.post('/topic/create', auth.userRequired, topic.create);
-router.get('/topic/:tid', auth.userRequired, topic.index);
+router.get('/topic/:tid', topic.index);
 router.get('/topic/:tid/edit', auth.userRequired, topic.showEdit);
 router.post('/topic/:tid/edit', auth.userRequired, topic.update);
 router.post('/topic/:tid/delete', auth.userRequired, topic.delete);
+router.get('/topic/top/:tid',topic.top);
 
 //acount
 router.get('/manager/account', auth.userRequired, user.showAccount);

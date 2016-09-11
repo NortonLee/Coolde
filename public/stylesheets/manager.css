@@ -882,6 +882,12 @@ a.last_time {
   white-space: nowrap;
 }
 
+.topic_top_wrapper {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color:chartreuse;
+}
+
 a.topic_title {
   color: #333;
 }
@@ -910,13 +916,28 @@ a.cpps{
 .operate{
     margin-right:  5%;
     display:block;
-    width: 10px;
     float: right;
 }
 .right-col{
     position:fixed;
     top:20%;
-    right:5%;
+    right:1%;
     margin-top:-50px;
     z-index: 999
+}
+
+@media screen and (max-width: 700px) { 
+    .count_of_visits {
+        display: none;
+    }
+    .topiclist-tab{
+        display: none;
+    }
+    .last_time .last_active_time {
+        display: none;
+    }
+    .operate{
+        float:none;
+        margin-top: 5px;
+    }
 }

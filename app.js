@@ -24,7 +24,9 @@ app.use(cookieParser());
 app.use(flash());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
-    secret: "cooldeNorton"
+    secret: "cooldeNorton",
+    maxAge  : new Date(Date.now() + 3600000), //1 Hour
+    expires : new Date(Date.now() + 3600000), //1 Hour
 }));
 
 app.use(function(req, res, next){

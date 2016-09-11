@@ -1,10 +1,13 @@
 doctype 
 html
   head
+    meta(name="baidu-site-verification",content="ArTidSY7Ks")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, minimal-ui")
+    meta(name="keywords" content="酷的,coolde,norton li,@norton")
     - if (typeof(title) == 'undefined')
         title Coolde, Norton's Yard
     - else 
-        title= title + " - Coolde ©Norton Li"
+        title= title + " — Coolde @Norton Li"
     
     link(rel='stylesheet',href='/blogcss/screen.css')
 
@@ -17,6 +20,7 @@ html
     script(src='/libs/webuploader/webuploader.withoutimage.js')
     script(src='/libs/editor/ext.js')
     script(src='/libs/markdownit.js')
+    script(src='/javascripts/baidu.js')
     
     block head
     
@@ -44,11 +48,8 @@ html
                                 <a href='/movie'>电影</a>
                             li
                                 <a href='/about'>关于</a>
-                          
-                          section(class='aboutme')
-                            <p>Norton Li</p>
                         section(class='copyright')
-                            p &copy; !{(new Date()).getFullYear()} by Norton Li
+                            p <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1255344755'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1255344755%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>  &copy; 2015-!{(new Date()).getFullYear()} by <a href='/about'>Norton Li</a>
         <div class="right-col">
         - if(typeof('cps') !== 'undefined' && cps){
                 !{cps.html_content}

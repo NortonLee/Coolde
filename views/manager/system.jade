@@ -4,3 +4,8 @@ block content
     div.panel
         div.header
             系统管理
+        div.inner
+            form#setting_form.form-horizontal(method="post" action="/manager/account")
+                div.control-group
+                    label.control-label(for="name") 是否启用广告：
+                    label.control-label 启用

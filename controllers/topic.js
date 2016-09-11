@@ -139,9 +139,24 @@ exports.index = function (req, res, next) {
         topic.friendly_update_at = tools.formatDate(topic.update_at);
         topic.mdContent = mdHelper.markdown(topic.content);
         
+        var cps;
+        var cps_opt = {limit: config.cps_limit};
+        var cps_query = {'status': true};
+        if(config.cps_switch == "on"){
+            CPS.find(cps_query, '', cps_opt, function(err,docs){ 
+                if (err) {
+                    console.log(err);
+                    return next(err);
+                }
+                var index = Math.ceil(Math.random()*docs.length);
+                cps = docs[index-1];
+            });
+        }
+        
         res.render('topics/index', {
             title: topic.title.substring(0,20),
-            topic: topic
+            topic: topic,
+            cps: cps
         });
         
     });
@@ -207,7 +222,7 @@ exports.topic_list = function(req, res ,next){
     }
     var limit = config.web_list_topic_cout;
     
-    var opt = {skip: (page - 1) * limit, limit: limit, sort: '-create_at'};
+    var opt = {skip: (page - 1) * limit, limit: limit, sort: '-isTop -create_at'};
     var query;
     if(type == "all"){
         query = {'deleted': false};
@@ -286,6 +301,27 @@ exports.delete = function(req, res, next){
                 return res.send({ success: false, message: err.message });
             }
             res.send({ success: true, message: '话题已被删除。' });
+        });
+    });
+};
+
+exports.top = function(req,res,next){
+    var topic_id = req.params.tid;
+    
+    Topic.findOne({_id: topic_id}, function (err, topic) {
+        if (err) {
+           return res.render('error', {
+                title: "Error",
+                error:{message: '此话题不存。',}
+            });
+        }
+        topic.isTop = !topic.isTop;
+        
+        topic.save(function (err) {
+            if (err) {
+                return res.send({ success: false, message: err.message });
+            }
+            res.send({ success: true, message: '操作成功。' });
         });
     });
 };

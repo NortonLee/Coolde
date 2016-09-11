@@ -1,0 +1,213 @@
+
+body {
+font-size: 14px;
+background:url("http://www.51pptmoban.com/d/file/2014/05/11/1547fb25e896da6fd1b8792e1435b0cc.jpg");
+font-family: "微软雅黑";
+}
+
+.k {
+margin: 0 auto;
+width: 90%;
+}
+
+.t {
+}
+
+a{
+    text-decoration:none;
+    color:#CCFF99;
+}
+
+a:visited {
+   color:#CCFF99;
+}
+
+
+.declare{
+    color: azure;
+}
+
+.declare .a{
+    text-decoration:none;
+    color: #CCFF99;
+}
+
+.declare .a:visited{
+    color:#CCFF99;
+}
+
+.c_item {
+/*border: 2px solid #ff6a00;*/
+width: 140px;
+margin: 0 auto;
+float: left;
+margin: 3px;
+padding: 8px;
+background-color:#FF9900;
+border-radius: 10px;
+}
+
+.c_item > em {
+color: #99FF33;
+}
+
+.c_item b {
+background-color: #ffd800;
+color: red;
+}
+
+.c_item .time{
+    color: #fff;
+}
+
+.c_item > span{
+    color: #efefef;
+}
+
+.used > em {
+color: #ffffff;
+}
+
+.used > .code > b {
+/*background-color: #808080;*/
+color: #ffd800;
+}
+
+.wish{
+    margin-left: 5px;
+    color:#fff;
+}
+
+.expire {
+/*border: 2px solid #ff6a00;*/
+width: 140px;
+margin: 0 auto;
+float: left;
+margin: 3px;
+padding: 8px;
+background: #808080;
+border-radius: 10px;
+color: #FFF;
+}
+
+.expire > em {
+color: #ffffff;
+}
+
+.expire > .code > b {
+background-color: #808080;
+color: #ffd800;
+}
+
+.expire > .code > span {
+    background-color: #808080;
+    color:#fff;
+    float:left;
+    margin-right: 5px;
+}
+
+.used {
+/*border: 2px solid #ff6a00;*/
+width: 140px;
+margin: 0 auto;
+float: left;
+margin: 3px;
+padding: 8px;
+background: red;
+border-radius: 10px;
+color: #FFF;
+}
+
+.used > em {
+color: #ffffff;
+}
+
+.used > .code > b {
+background-color: red;
+color: #ffd800;
+}
+
+.used > .code > span {
+    background-color: red;
+    color:#fff;
+    float:left;
+    margin-right: 5px;
+}
+
+
+.k > h2 {
+color: #FFF;
+}
+
+.link {
+margin: 0 auto;
+width: 90%;
+}
+
+.inner{
+    display: block;
+    min-height: 200px;
+}
+
+
+.link > a {
+/*border: 2px solid #ff6a00;*/
+width: 100%;
+float: left;
+margin: 3px;
+padding: 10px;
+background: red;
+border-radius: 10px;
+color: #FFF;
+}
+
+.hold{
+    bottom: 1px;
+    color: azure;
+    background:#ffcc00;
+    width: 98%;
+    border-radius: 10px;
+}
+
+.hold p{
+    margin-left: 10px;
+    color:azure;
+}
+.hold > p >span{
+    margin-left: 10px;
+}
+
+.hold a{
+    color: #ff0000;
+}
+
+.link > a > span {
+    float: right;
+}
+
+
+.floor {
+margin: 0 auto;
+width: 90%;
+}
+.floor > span  {
+width: 100%;
+float: left;
+margin: 3px; padding:10px;
+height:40px; line-height:40px;
+background: red;
+border-radius: 10px;
+color: #FFF;
+}
+
+.GB {
+margin: 0 auto;
+width: 90%; background:#ffffff; padding:10PX;
+}
+
+.footer{
+    display: block;
+    width: 98%;
+    text-align: center;
+    margin-bottom: 50px;
+}

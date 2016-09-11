@@ -42,8 +42,10 @@ var myxss = new jsxss.FilterXSS({
 });
 
 exports.markdown = function (text) {
-    if(text.indexOf('embed') !== -1){
+    if(text.indexOf('embed') !== -1 || text.indexOf('iframe') !== -1){
         return '<p>' + text + '</p>';
+    }else if(text.indexOf('nortonscript') != -1){
+        return text;
     }else{
         return '<div class="markdown-text">' + myxss.process(md.render(text || '')) + '</div>';
     }
