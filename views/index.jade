@@ -2,7 +2,7 @@ extends layout/layout
 
 block content
     - topics.forEach(function(topic){
-    article.post
+    article.post.animated.fadeInUp
         h3.title
             - if(topic.isTop){
             span.top [置顶]
@@ -28,7 +28,7 @@ block content
             a.prev(href=prev_url) 上一页
         - }
     - }else{
-    nav#pagenavi
+    nav#pagenavi.animated.fadeInUp
             p.center 没有更多内容
     - }
    

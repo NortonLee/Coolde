@@ -5,7 +5,7 @@ block content
         script(type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#uuid=&amp;style=3&amp;fs=4&amp;textcolor=#000&amp;bgcolor=#DDD&amp;text=分享到&amp;pophcol=1")
         <script type="text/javascript"> bShare.init(); </script>
     article.post
-        h3.title #{topic.title}
+        h3.title.animated.bounceInDown #{topic.title}
         div.meta
             span.type #{topic.type}
             span.view #{topic.visit_count}
@@ -16,12 +16,12 @@ block content
                     i.edit(title="编辑")
                 a.del(href="javascript:" data-id="#{topic._id}")
                     i.delete(title="删除")
-        div.entry-content
+        div.entry-content.animated.bounceInRight
             div.topic_content
                 !{topic.mdContent}
     
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="#{topic._id}" data-title="#{topic.title}" data-url="www.coolde.cn/topic/#{topic._id}"></div>
+    <div class="ds-thread animated bounceInRight" data-thread-key="#{topic._id}" data-title="#{topic.title}" data-url="www.coolde.cn/topic/#{topic._id}"></div>
     <!-- 多说评论框 end -->
 
     script(type='text/javascript').
