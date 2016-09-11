@@ -16,6 +16,7 @@ html
     script(src='/javascripts/jquery-1.11.2.min.js')
     script(src='/javascripts/modernizr.js')
     script(src='/javascripts/slash.js')
+    script(src='/javascripts/wow.min.js')
     
     script(src='/libs/editor/editor.js')
     script(src='/libs/webuploader/webuploader.withoutimage.js')
@@ -60,3 +61,6 @@ html
             div(class="mid-col-container")
                 div#content.inner
                         block content
+
+        script(type='text/javascript').
+            new WOW().init();

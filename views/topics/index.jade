@@ -5,7 +5,7 @@ block content
         script(type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#uuid=&amp;style=3&amp;fs=4&amp;textcolor=#000&amp;bgcolor=#DDD&amp;text=分享到&amp;pophcol=1")
         <script type="text/javascript"> bShare.init(); </script>
     article.post
-        h3.title.animated.bounceInDown #{topic.title}
+        h3.title.wow.animated.bounceInDown #{topic.title}
         div.meta
             span.type #{topic.type}
             span.view #{topic.visit_count}
@@ -16,7 +16,7 @@ block content
                     i.edit(title="编辑")
                 a.del(href="javascript:" data-id="#{topic._id}")
                     i.delete(title="删除")
-        div.entry-content.animated.bounceInRight
+        div.entry-content.wow.animated.bounceInRight
             div.topic_content
                 !{topic.mdContent}
     
