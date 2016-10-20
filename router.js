@@ -11,7 +11,9 @@ var config = require('./config');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/', topic.topic_list);
+router.get('/', function(req,res){
+    res.render("new");
+});
 router.get('/all/:page', topic.topic_list);
 router.get('/blog', topic.topic_list);
 router.get('/blog/:page', topic.topic_list);

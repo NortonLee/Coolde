@@ -1,0 +1,35 @@
+html
+  head
+    meta(name="baidu-site-verification",content="ArTidSY7Ks")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, minimal-ui")
+    meta(name="keywords" content="酷的,coolde,norton li,@norton")
+    
+    title  Coolde @Norton Li
+
+    link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+    link(rel='stylesheet',href='/blogcss/screen.css')
+    link(rel='stylesheet',href='/blogcss/animate.css')
+    
+
+    script(src='/javascripts/jquery-1.11.2.min.js')
+    script(src='/javascripts/wow.min.js')
+body
+    div.navbar.navbar-inverse.navbar-fixed-top
+        div.container
+            div.navbar-header
+                div.wow.pulse.animated(data-wow-delay="300ms", data-wow-iteration="infinite", data-wow-duration="2s")
+                    img.circle-head-min(src="/images/profile.jpg")
+            div.navbar-header
+                a.navbar-brand.hidden-sm(href="/") Coolde
+    div.circle-container
+        a.circle.bg-green.wow.rollIn(data-wow-delay='0.5s',href="/blog") Blog
+        a.circle.bg-green.wow.rollIn(data-wow-delay='1s',href="/life") Feeling
+        a.circle.bg-green.wow.rollIn(data-wow-delay='1.5s',href="/music") Music
+        a.circle.bg-green.wow.rollIn(data-wow-delay='2s',href="/movie") Movie
+        a.circle.bg-green.wow.rollIn(data-wow-delay='2.5s',href="/about") About
+    
+    div.new-footer
+        p.text-muted Copyright &copy;2015-!{(new Date()).getFullYear()} by Norton Li
+
+    script(type='text/javascript').
+            new WOW().init();
