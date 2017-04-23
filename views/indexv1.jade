@@ -1,0 +1,34 @@
+extends layout/layout
+
+block content
+    - topics.forEach(function(topic){
+    article.post.wow.animated.fadeInUp
+        h3.title
+            - if(topic.isTop){
+            span.top [置顶]
+            - }
+            a(href="/topic/" + topic._id) #{topic.title}
+        div.meta
+            span.type #{topic.type}
+            span.view #{topic.visit_count}
+            span.date #{topic.friendly_create_at}
+        div.entry-content
+           !{topic.brief_content}
+    - })
+    - if(pages > 1){
+    - var next_url = '/' + type + "/" + (current_page + 1);
+    - var prev_url = '/' + type + "/" +  (current_page - 1);
+    nav#pagenavi
+        - if(current_page == 1){
+            a.next(href=next_url) 下一页
+        - }else if(current_page == pages){
+            a.prev(href=prev_url) 上一页
+        - }else{
+            a.next(href=next_url) 下一页
+            a.prev(href=prev_url) 上一页
+        - }
+    - }else{
+    nav#pagenavi.animated.fadeInUp
+            p.center 没有更多内容
+    - }
+   

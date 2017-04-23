@@ -8,15 +8,18 @@ html
         title Coolde, Norton's Yard
     - else 
         title= title + " — Coolde @Norton Li"
-    
-    link(rel='stylesheet',href='/blogcss/screen.css')
+
+    link(rel='stylesheet',href='/blogcss/swiper-3.4.1.min.css')
     link(rel='stylesheet',href='/blogcss/animate.css')
+    link(rel='stylesheet',href='/blogcss/screen.css')
 
     // include default scripts and any view scripts
     script(src='/javascripts/jquery-1.11.2.min.js')
     script(src='/javascripts/modernizr.js')
     script(src='/javascripts/slash.js')
     script(src='/javascripts/wow.min.js')
+    script(src='/javascripts/swiper/swiper-3.4.1.jquery.min.js')
+    script(src='/javascripts/swiper/swiper.animate1.0.2.min.js')
     
     script(src='/libs/editor/editor.js')
     script(src='/libs/webuploader/webuploader.withoutimage.js')
@@ -27,12 +30,13 @@ html
     block head
     
   body
+      img(src='/img/logo.png', style="width:0px;height:0px;overflow:hidden; display:block;")
       div.container
         div.left-col
             div.intrude-less
                 header(id='header',class='inner')
                     div(class='profilepic')
-                        img(src='/images/profile.jpg',alt='Profile Picture',style='width:160px;height:160px;')
+                        div.profile-animation
                     hgroup
                         h1
                             <a href='/'>Coolde</a>

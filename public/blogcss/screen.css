@@ -525,7 +525,7 @@ ul li a { -webkit-transition: all .2s ease-in;-moz-transition:all .2s ease-in;-o
 .left-col .intrude-less { width: 80% }
 .left-col #header { width: 100%;padding:20% 0% 0% 15% }
 .left-col #header #main-nav { margin-top: 30px;font-size:1.5em }
-.left-col #header .profilepic img { border-radius: 50%;-moz-border-radius:50%;-webkit-border-radius:50% }
+.left-col #header .profilepic div { border-radius: 50%;-moz-border-radius:50%;-webkit-border-radius:50% }
 .left-col #header a { text-shadow: 0 1px #333 }
 .left-col #header #sub-nav { margin-top: 10px }
 .left-col #header #sub-nav .social { margin-bottom: 10px }
@@ -547,10 +547,16 @@ ul li a { -webkit-transition: all .2s ease-in;-moz-transition:all .2s ease-in;-o
         position: relative;
         width: 100%;
     }
+    .left-col h2{
+        display: none;
+    }
     .left-col .intrude-less { margin: auto auto }
     .left-col #header {
-        padding: 40px 0px;
+        padding: 20px 0px;
         text-align: center;
+    }
+    .left-col #header #main-nav{
+        margin-top:10px;
     }
     .left-col #header #sub-nav { display: block }
     .left-col #header #main-nav ul { display: block }
@@ -713,4 +719,187 @@ i.delete:before{
     text-align: center;
     position: fixed;
     margin-top: 250px;
+}
+
+/*v3首页*/
+.swiper-content{
+    color:#fff;
+    font-size: 2em;
+    text-align: center;
+}
+
+.sub-swiper-container{
+    margin-top: 120px;
+    height: 200px;
+    text-align: center;
+    line-height: 200px;
+}
+
+.sub-swiper-container .sub-swiper-text a{
+    color: #eee;
+    font-size: 0.5em;
+}
+
+.swiper-content .text{
+    line-height: 40px;
+    margin-top:16em;
+}
+
+.swiper-content .entry{
+    margin-top:5em;
+}
+
+.swiper-content .image{
+    width: 100%;
+    height: 100%;
+}
+
+.v3-footer{
+    color: #eee;
+    width: 100%; 
+    text-align: center;
+    position: fixed;
+    bottom: 35px;
+}
+
+.v3-footer a{
+    font-size: 1.5em;
+    color:#eee;
+}
+
+/*v3 about*/
+.coolde-title{
+    line-height: 40px;
+    margin-top:2em;
+}
+
+.coolde-text{
+    margin: 100px 5px;
+    padding:5px;
+    line-height: 40px;
+    font-size: .8em;
+    text-align: center;
+}
+
+.coolde-text a{
+    color:#eee;
+}
+
+.coolde-text-center{
+    margin-top:60px;
+    text-align: center;
+    font-size: .8em;
+}
+
+.coolde-white{
+    color:#fff;
+}
+
+.coolde-content{
+    line-height: 200px;
+    margin-top: 6em;
+}
+
+.experice-text{
+    line-height: 50px;
+}
+
+.experice-text p{
+    text-align: center;
+    font-size: .8em;
+}
+
+.coolde-about-background{
+    background:url(/images/Parallax.jpg) no-repeat;
+    background-size:cover;
+}
+
+/*siwper*/
+
+.swiper-pagination-bullet{
+    background: #fff;
+}
+
+.swiper-pagination-bullet-active{
+    background: #fff;
+}
+
+.slide-margin-top{
+    margin-top: 6em;
+}
+
+.profile-animation {
+  background: url(/images/profile.png);
+  width: 100px;
+  height: 100px;
+  animation: profile-animation 2s steps(8) infinite;
+  margin-left: 20px;
+}
+
+@keyframes profile-animation {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -800% 0px;
+  }
+}
+
+.array-image{
+    text-align: center;
+}
+
+#array{
+	position:fixed;
+    z-index:999;
+    -webkit-animation: start 1.5s infinite ease-in-out;
+    width:20px;
+    height:15px;
+    bottom: 20px;
+}
+
+@-webkit-keyframes start {
+	0%,30% {opacity: 0;-webkit-transform: translate(0,10px);}
+	60% {opacity: 1;-webkit-transform: translate(0,0);}
+	100% {opacity: 0;-webkit-transform: translate(0,-8px);}
+}
+@-moz-keyframes start {
+	0%,30% {opacity: 0;-moz-transform: translate(0,10px);}
+	60% {opacity: 1;-moz-transform: translate(0,0);}
+	100% {opacity: 0;-moz-transform: translate(0,-8px);}
+}
+@keyframes start {
+	0%,30% {opacity: 0;transform: translate(0,10px);}
+	60% {opacity: 1;transform: translate(0,0);}
+	100% {opacity: 0;transform: translate(0,-8px);}
+}
+
+@media screen and (max-width: 600px) { 
+    .coolde-text{
+        margin: 15px 5px;
+        text-align: left;
+    }
+
+    .swiper-content .text{
+        margin-top:6em;
+    }
+
+    .sub-swiper-container{
+        margin-top: 20px;
+    }
+
+    .slide-margin-top{
+        margin-top: 4em;
+    }
+
+    .swiper-content .entry{
+        margin-top:4em;
+    }
+}
+
+/*kownlege-chart*/
+#konwlege-echart{
+    width: 100%;
+    height: 65%;
+    opacity: .6;
 }
